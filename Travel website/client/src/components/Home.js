@@ -71,7 +71,7 @@ export default function Home() {
 										<p class="text-wh">You know where you want to go.<br/> Now find the best way to
 											get there and enjoy
 											it.</p>
-										<form  method="post" class="search-bottom-wthree d-flex mt-3">
+										<form  class="search-bottom-wthree d-flex mt-3">
 										<div class="button-w3ls mt-xl-5 mt-4">
 					{/* <a href="#" class="btn animated-button">Login/SignUp</a> */}
 					{isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button">Login/SignUp</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } class="btn animated-button">Login/SignUp</a></li>}
