@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Swal from "sweetalert2";
 import  axios from "axios";
 import { useRef } from 'react';
-
+import { useAuth0 } from "@auth0/auth0-react";
 import { useFormik } from 'formik'
 import * as yup from "yup";
 import { SchemaProvide } from '../schema/Index';
@@ -190,6 +190,10 @@ else{
     Inside this function, you can access the selected file using e.target.files[0],where e is the event object. */
     };
  
+const { loginWithRedirect } = useAuth0();
+ const { logout } = useAuth0();
+ const {isAuthenticated}=useAuth0();
+ const {user}=useAuth0();
   return (
     <div>
               <div class="main-top">
@@ -213,6 +217,7 @@ else{
 								<li><a href="blog.html">Blog</a></li>
 								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact" class="active">Contact Us</a></li>
+                {isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } class="btn animated-button">Login/SignUp</a></li>}
 							</ul>
 						</li>
 					</ul>

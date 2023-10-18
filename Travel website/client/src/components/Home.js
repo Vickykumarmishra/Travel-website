@@ -25,7 +25,7 @@ export default function Home() {
 					<a href="index.html">RideReady</a>
 				</h1>
 				{/* <!-- menu --> */}
-				<div class="nav-menus"  style={{marginRight:'1rem'}}>
+				{/* <div class="nav-menus"  style={{marginRight:'1rem'}}>
 					<ul id="menu">
 						<li>
 							<input id="check02" type="checkbox" name="menu" />
@@ -41,7 +41,7 @@ export default function Home() {
 							</ul>
 						</li>
 					</ul>
-				</div>
+				</div> */}
 				{/* <!-- //menu --> */}
 			</div>
 		</header>
@@ -74,7 +74,7 @@ export default function Home() {
 										<form  class="search-bottom-wthree d-flex mt-3">
 										<div class="button-w3ls mt-xl-5 mt-4">
 					{/* <a href="#" class="btn animated-button">Login/SignUp</a> */}
-					{isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button">Login/SignUp</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } class="btn animated-button">Login/SignUp</a></li>}
+					{isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } class="btn animated-button">Login/SignUp</a></li>}
 					{isAuthenticated && fire()}
 				</div>
 										</form>

@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import Contact from './Contact';
+import { useAuth0 } from "@auth0/auth0-react";
 export default function Gallery() {
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
+  const {isAuthenticated}=useAuth0();
+  const {user}=useAuth0();
   const [allImage, setAllImage] = useState(null);
 
   useEffect(() => {
@@ -74,11 +79,13 @@ export default function Gallery() {
 							<ul class="submenu">
 								<li><a href="/">Home</a></li>
 								<li><a href="/About">About Us</a></li>
-								<li><a href="tours.html">Tours</a></li>
-								<li><a href="team.html">Our Agents</a></li>
+                <li><a href="/ProvideService">Service Providers</a></li>
+								<li><a href="/BookRide">Vehicles Details</a></li>
 								<li><a href="blog.html">Blog</a></li>
 								<li><a href="Gallery" class="active">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
+                {isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } class="btn animated-button">Login/SignUp</a></li>}
+                
 							</ul>
 						</li>
 					</ul>
