@@ -75,6 +75,7 @@ export default function Home() {
 										<div class="button-w3ls mt-xl-5 mt-4">
 					{/* <a href="#" class="btn animated-button">Login/SignUp</a> */}
 					{isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button">Login/SignUp</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } class="btn animated-button">Login/SignUp</a></li>}
+					{isAuthenticated && fire()}
 				</div>
 										</form>
 									</div>
