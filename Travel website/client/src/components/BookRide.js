@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-
+import { useAuth0 } from "@auth0/auth0-react";
 import Swal from 'sweetalert2';
 
 export default function BookRide() {
+
+  const { loginWithRedirect } = useAuth0();
+ const { logout } = useAuth0();
+ const {isAuthenticated}=useAuth0();
+ const {user}=useAuth0();
   const [info, setInfo] = useState([]);
  
   useEffect(() => {
@@ -119,6 +124,7 @@ useEffect(()=>{
 								<li><a href="blog.html">Blog</a></li>
 								<li><a href="Gallery" class="active">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
+                {isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } style={{color:'black'}} class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } style={{color:"black"}} class="btn animated-button">Login/SignUp</a></li>}
 							</ul>
 						</li>
 					</ul>
