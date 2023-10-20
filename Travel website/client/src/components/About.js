@@ -33,7 +33,7 @@ export default function About() {
 								<li><a href="/About" class="active">About Us</a></li>
 								<li><a href="/ProvideService">Service Providers</a></li>
 								<li><a href="/BookRide">Vehicles Details</a></li>
-								<li><a href="blog.html">Blog</a></li>
+								
 								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
 								{isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } class="btn animated-button" style={{color:"black"}}>LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } style={{color:"black"}} class="btn animated-button">Login/SignUp</a></li>}
