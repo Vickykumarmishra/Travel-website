@@ -108,7 +108,7 @@ export default function Signup() {
     </label>
 
         {errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null}
-    <button  type="submit" onClick={handleSignup}>Submit</button>
+    <button class="submit" type="submit" onClick={handleSignup}>Submit</button>
     <p class="signin">Already have an acount ? <a href="/Login">Signin</a> </p>
 </form></div></center>
 
