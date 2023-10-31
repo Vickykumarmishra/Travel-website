@@ -217,7 +217,7 @@ const { loginWithRedirect } = useAuth0();
 								
 								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact" class="active">Contact Us</a></li>
-                {isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } style={{color:"black"}} class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } style={{color:"black"}} class="btn animated-button">Login/SignUp</a></li>}
+                <li> <a href="/"   style={{color:"black"}} class="btn animated-button">Logout</a></li>
 							</ul>
 						</li>
 					</ul>
