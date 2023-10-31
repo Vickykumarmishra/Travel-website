@@ -51,7 +51,7 @@ export default function ProvideService() {
     
    
   
-    const url="https://perfectrider.onrender.com/post"
+    const url="https://bharatvarsh.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''){
 
@@ -153,7 +153,7 @@ else{
   
   try {
     const result = await axios.post(
-      "https://perfectrider.onrender.com/upload",
+      "https://bharatvarsh.onrender.com/upload",
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },

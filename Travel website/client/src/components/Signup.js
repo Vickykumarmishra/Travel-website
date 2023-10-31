@@ -11,7 +11,7 @@ export default function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         
-        const response = await fetch('http://localhost:8000/signup', { // Assuming you have a signup endpoint
+        const response = await fetch('https://bharatvarsh.onrender.com/signup', { // Assuming you have a signup endpoint
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

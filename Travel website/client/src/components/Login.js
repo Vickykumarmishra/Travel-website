@@ -11,7 +11,7 @@ const [email,setEmail]=useState('')
 const navigate=useNavigate();
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8000/login', {
+        const response = await fetch('https://bharatvarsh.onrender.com/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

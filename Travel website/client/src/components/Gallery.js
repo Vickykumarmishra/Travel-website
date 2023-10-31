@@ -17,7 +17,7 @@ export default function Gallery() {
 
   const getImage = async () => {
     axios
-      .get("https://perfectrider.onrender.com/get-image")
+      .get("https://bharatvarsh.onrender.com/get-image")
       .then((response) => {
         setAllImage(response.data);
 
