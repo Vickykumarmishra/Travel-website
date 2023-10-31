@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 export default function Signup() {
 
 
@@ -22,10 +23,22 @@ export default function Signup() {
         if (response.ok) {
         console.log('response:' , response)
                 navigate('/Login')
+              
+                Swal.fire(
+                    'User Registered Successfully!',
+                    'Now you can login!',
+                    'success'
+                  )
             
           // Handle successful signup, e.g., redirect to login or show a success message
         } else {
-          // Handle signup failure, e.g., display an error message
+          
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'User Already exists!',
+                footer: '<p style="color:red"><b>check username and password carefully</b></p>'
+              })
         }
       };
   return (
