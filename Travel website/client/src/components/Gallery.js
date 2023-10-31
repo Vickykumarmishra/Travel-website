@@ -84,7 +84,7 @@ export default function Gallery() {
 								
 								<li><a href="Gallery" class="active">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
-                {isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } style={{color:"black"}} class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } style={{color:"black"}} class="btn animated-button">Login/SignUp</a></li>}
+                <li> <a href="/"   style={{color:"black"}} class="btn animated-button">Logout</a></li>
                 
 							</ul>
 						</li>
