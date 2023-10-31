@@ -74,8 +74,11 @@ export default function Home() {
 										<form  class="search-bottom-wthree d-flex mt-3">
 										<div class="button-w3ls mt-xl-5 mt-4">
 					{/* <a href="#" class="btn animated-button">Login/SignUp</a> */}
-					{isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } style={{color:"black"}} class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } style={{color:'black',backgroundColor:"white"}} class="btn animated-button">Login/SignUp</a></li>}
-					{isAuthenticated && fire()}
+					{/* {isAuthenticated?<li><a href="#" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) } style={{color:"black"}} class="btn animated-button">LogOut</a> </li>: <li> <a href="#"  onClick={() =>loginWithRedirect() } style={{color:'black',backgroundColor:"white"}} class="btn animated-button">Login/SignUp</a></li>}
+					{isAuthenticated && fire()} */}
+					 
+					 <li> <a href="/Signup"  style={{color:'black',backgroundColor:"white"}} class="btn animated-button">Login/SignUp</a></li>
+
 				</div>
 										</form>
 									</div>

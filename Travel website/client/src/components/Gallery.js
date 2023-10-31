@@ -101,7 +101,7 @@ export default function Gallery() {
         <div className="container-fluid py-5">
           <div className="row news-grids no-gutters text-center mt-lg-2 mt-md-5">
             {allImage === null ? (
-              <p>...Loading images from the database</p>
+              <p>...connecting to server</p>
             ) : (
               allImage.map((soln, index) => {
                 const { imageUrl } = soln;
