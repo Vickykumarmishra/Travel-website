@@ -3,13 +3,10 @@ import Gallery from './Gallery'
 import Contact from './Contact'
 import ProvideService from './ProvideService'
 import BookRide from './BookRide'
-import { useAuth0 } from "@auth0/auth0-react";
+
 export default function About() {
 
- const { loginWithRedirect } = useAuth0();
- const { logout } = useAuth0();
- const {isAuthenticated}=useAuth0();
- const {user}=useAuth0();
+ 
  
 
   return (
