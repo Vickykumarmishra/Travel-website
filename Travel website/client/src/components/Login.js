@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Signup from './Signup';
+import Swal from 'sweetalert2';
 
 export default function Login() {
 
@@ -26,7 +27,14 @@ const navigate=useNavigate();
           navigate('/About')
           // You can redirect to the authenticated route here.
         } else {
-          // Handle authentication failure
+          
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'User does not exists!',
+                footer: '<p><b>check username and password carefully</b></p>'
+              })
+
         }
       };
 
