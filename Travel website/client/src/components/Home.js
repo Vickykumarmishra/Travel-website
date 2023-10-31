@@ -105,7 +105,7 @@ export default function Home() {
 											it.</p>
 										<form  method="post" class="search-bottom-wthree d-flex mt-3">
 										<div class="button-w3ls mt-xl-5 mt-4">
-					<a href="#" class="btn animated-button">Login/SignUp</a>
+					<a href="/Signup"  style={{color:'black',backgroundColor:"white"}} class="btn animated-button">Login/SignUp</a>
 				</div>
 										</form>
 									</div>
@@ -132,7 +132,7 @@ export default function Home() {
 											it.</p>
 										<form  method="post" class="search-bottom-wthree d-flex mt-3">
 										<div class="button-w3ls mt-xl-5 mt-4">
-					<a href="#" class="btn animated-button">Login/SignUp</a>
+					<a href="/Signup"  style={{color:'black',backgroundColor:"white"}} class="btn animated-button">Login/SignUp</a>
 				</div>
 										</form>
 									</div>

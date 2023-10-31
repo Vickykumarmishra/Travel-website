@@ -113,7 +113,7 @@ useEffect(()=>{
 							<input id="check02" type="checkbox" name="menu" />
 							<label for="check02"><span class="fa fa-bars" aria-hidden="true"></span></label>
 							<ul class="submenu">
-								<li><a href="/">Home</a></li>
+								{/* <li><a href="/">Home</a></li> */}
 								<li><a href="/About">About Us</a></li>
 								<li><a href="/ProvideService">Service Providers</a></li>
 								<li><a href="/BookRide" class="active">Vehicles Details</a></li>
@@ -222,7 +222,7 @@ useEffect(()=>{
 		</div>
 	</div>
 	
-  
+
   </div>
   
 
