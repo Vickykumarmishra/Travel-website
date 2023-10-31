@@ -1,10 +1,7 @@
 import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 export default function Contact() {
-	const { loginWithRedirect } = useAuth0();
- const { logout } = useAuth0();
- const {isAuthenticated}=useAuth0();
- const {user}=useAuth0();
+	
   return (
     <div>
       
@@ -30,7 +27,7 @@ export default function Contact() {
 								
 								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact" class="active">Contact Us</a></li>
-								<li> <a href="/"   style={{color:"black"}} class="btn animated-button">Logout</a></li>
+								<li> <a href="/"   style={{color:"black"}} >Logout</a></li>
 							</ul>
 						</li>
 					</ul>

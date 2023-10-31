@@ -84,7 +84,7 @@ export default function Gallery() {
 								
 								<li><a href="Gallery" class="active">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
-                <li> <a href="/"   style={{color:"black"}} class="btn animated-button">Logout</a></li>
+                <li> <a href="/"   style={{color:"black"}} >Logout</a></li>
                 
 							</ul>
 						</li>

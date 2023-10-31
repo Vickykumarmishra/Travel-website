@@ -116,11 +116,11 @@ useEffect(()=>{
 								<li><a href="/">Home</a></li>
 								<li><a href="/About">About Us</a></li>
 								<li><a href="/ProvideService">Service Providers</a></li>
-								<li><a href="/BookRide">Vehicles Details</a></li>
+								<li><a href="/BookRide" class="active">Vehicles Details</a></li>
 								
-								<li><a href="Gallery" class="active">Gallery</a></li>
+								<li><a href="Gallery">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
-                <li> <a href="/"   style={{color:"black"}} class="btn animated-button">Logout</a></li>
+                <li> <a href="/"   style={{color:"black"}} >Logout</a></li>
 							</ul>
 						</li>
 					</ul>
