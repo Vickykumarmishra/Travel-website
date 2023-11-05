@@ -61,6 +61,11 @@ const navigate=useNavigate();
           const data = await response.json();
           localStorage.setItem('token', data.token);
           navigate('/About')
+          Swal.fire(
+            'Logged In',
+            'Welcome to RideReady',
+            'success'
+          )
           // You can redirect to the authenticated route here.
         } else {
           

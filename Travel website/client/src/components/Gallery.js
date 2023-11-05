@@ -68,7 +68,7 @@ export default function Gallery() {
 		<header>
 			<div class="container-fluid">
 				<h1 class="logo text-center">
-					<a href="index.html">RideReady Image gallery</a>
+					<a href="#">RideReady Image gallery</a>
 				</h1>
 			
 				<div class="nav-menus">

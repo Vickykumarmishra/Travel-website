@@ -39,7 +39,8 @@ app.post('/post',async (req,res)=>{
 })
 
 app.delete("/delete/:_id", async (req, resp) => {
-  console.log(req.params)
+  console.
+  g(req.params)
   let data = await Product.deleteOne(req.params);
   resp.send(data);
 }) 
