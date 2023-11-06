@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-
-import { useAuth0 } from "@auth0/auth0-react";
 import Swal from 'sweetalert2';
 
 export default function BookRide() {
-
+  
+  const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
  
   useEffect(() => {
-
+    const storedRole = localStorage.getItem('role');
+    setRole(storedRole);
+  }, []);
+  useEffect(() => {
+   
    
     axios.get("https://bharatvarsh.onrender.com/getter")
       .then(response => {
@@ -33,35 +35,24 @@ export default function BookRide() {
     )
   }
 
+  const handleDelete = async (_id) => {
+    if (role === 'admin') {
+      const response = await fetch(`http://localhost:8000/delete/${_id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
 
-function deleter(id) {
-  console.log(id); // Corrected from console.log({id})
-
-  fetch(`https://bharatvarsh.onrender.com/delete/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    // You can pass data as the request body if needed, for example:
-    // body: JSON.stringify({ id: id })
-  })
-    .then((response) => {
       if (response.ok) {
-        console.log('Data deleted successfully');
+        Swal.fire('Deleted', 'Record deleted successfully', 'success');
       } else {
-        console.error('Failed to delete data');
+        Swal.fire('Error', 'Failed to delete the record', 'error');
       }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-
-    Swal.fire(
-      'Deleted  successfully from database',
-      'Refresh the page to see the effect',
-      'success'
-    )  
-}
+    } else {
+      Swal.fire('Access Denied', 'You do not have permission to delete records', 'error');
+    }
+  };
 
 function loader(){
 
@@ -106,7 +97,7 @@ useEffect(()=>{
 				<h1 class="logo text-center">
 					<a href="index.html">RideReady Available Bikes Details</a>
 				</h1>
-			
+			<h6 style={{color:"red",margin:'1rem'}}> {role} mode</h6>
 				<div class="nav-menus">
 					<ul id="menu">
 						<li>
@@ -173,7 +164,7 @@ useEffect(()=>{
                 <td>{charge}</td>
                 <td>{time}</td>
                 <td>
-                  <button  onClick={() => {deleter(_id)}} style={{ backgroundColor: '#05b993', color:'white' ,margin: '0.2rem' }}>
+                  <button  onClick={() => {handleDelete(_id)}} style={{ backgroundColor: '#05b993', color:'white' ,margin: '0.2rem' }}>
                     <b>Delete</b>
                   </button>
                 </td>

@@ -1,112 +1,100 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Signup from './Signup';
-import { useFormik } from 'formik'
-import { SchemaForm } from '../schema/schemaform';
-import * as yup from "yup";
 import Swal from 'sweetalert2';
 
 export default function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
-    const initialValues={
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-        username:"",
-        email:"",
-        password:"",
-        }
-    
-        const {values,errors,touched,handleBlur,handleChange,handleSubmit}=useFormik({
-            initialValues:initialValues,
-            validationSchema:SchemaForm,
-            onSubmit:(values,action)=>{
-            console.log(values);
-            action.resetForm();
-            }
-            })
+    const response = await fetch('http://localhost:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
 
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-const [email,setEmail]=useState('')
-const navigate=useNavigate();
-    const handleLogin = async (e) => {
-        e.preventDefault();
-    const { username, email, password } = values;
-    setUsername(username);
-    setEmail(email);
-    setPassword(password);
+    if (response.ok) {
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
+      const token = data.token;
+      const tokenParts = token.split('.');
+      const payload = JSON.parse(atob(tokenParts[1]));
+      const role = payload.role;
+      localStorage.setItem('role', role);
 
-    if(username==''||email==''||password==''){
-  
-      
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'All fields must be filled!',
-          
-        })
-      }
-
-      else{
-        const response = await fetch('https://bharatvarsh.onrender.com/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, email,password }),
-        });
-    
-        if (response.ok) {
-          console.log('response:' , response)
-          const data = await response.json();
-          localStorage.setItem('token', data.token);
-          navigate('/About')
-          Swal.fire(
-            'Logged In',
-            'Welcome to RideReady',
-            'success'
-          )
-          // You can redirect to the authenticated route here.
-        } else {
-          
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'User does not exists!',
-                footer: '<p><b>check username and password carefully</b></p>'
-              })
-
-        }}
-      };
+      navigate('/About');
+      Swal.fire('Logged In', 'Welcome to RideReady', 'success');
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'User does not exist!',
+        footer: '<p><b>Check your username and password carefully</b></p>',
+      });
+    }
+  };
 
   return (
-    <div style={{marginTop:"4rem"}}>
-     <center><form class="form">
-    <p class="title">Login Page </p>
-    <p class="message">Login now and get full access to our app. </p>
-        <div class="flex">
-        <label>
-            <input class="input" type="text" placeholder="" required=""    name="username" autoComplete="username" onChange={handleChange}
-            value={values.username}  onBlur={handleBlur}/>
-            <span>Username</span>
-        </label>
-
-       
-    </div>  
-    {errors.username && touched.username?(<p  style={{color:'red'}}className='form-error'>{errors.username}</p>):null}
-    <label>
-        <input class="input" type="email" placeholder="" required="" name="email"  value={values.email}  onBlur={handleBlur} onChange={handleChange}/>
-        <span>Email</span>
-    </label> 
-    {errors.email && touched.email?(<p  style={{color:'red'}}className='form-error'>{errors.email}</p>):null}
-    <label>
-        <input class="input" type="password" placeholder="" required=""    name="password" autoComplete="password"   value={values.password}  onBlur={handleBlur} onChange={handleChange}/>
-        <span>Password</span>
-    </label>
-    {errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null}
-    <button class="submit" onClick={handleLogin}>Login</button>
-    <p class="signin">Don't have an acount ? <a href="/Signup">SignUp</a> </p>
-</form></center>
+    <div style={{ marginTop: '4rem' }}>
+      <center>
+        <form className="form">
+          <p className="title">Login Page</p>
+          <p className="message">Login now and get full access to our app.</p>
+          <div className="flex">
+            <label>
+              <input
+                className="input"
+                type="text"
+                placeholder=""
+                required=""
+                id="username"
+                name="username"
+                autoComplete="username"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+              />
+              <span>Username</span>
+            </label>
+          </div>
+          <label>
+            <input
+              className="input"
+              type="email"
+              placeholder=""
+              required=""
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span>Email</span>
+          </label>
+          <label>
+            <input
+              className="input"
+              type="password"
+              placeholder=""
+              required=""
+              name="password"
+              autoComplete="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span>Password</span>
+          </label>
+          <button className="submit" onClick={handleLogin}>
+            Login
+          </button>
+          <p className="signin">
+            Don't have an account? <a href="/Signup">SignUp</a>
+          </p>
+        </form>
+      </center>
     </div>
-  )
+  );
 }

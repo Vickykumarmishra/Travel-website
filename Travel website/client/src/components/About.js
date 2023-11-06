@@ -53,7 +53,7 @@ export default function About() {
 				<p class="my-3">Embark on a voyage of discovery with our travel blog. Dive into vibrant cultures, stunning landscapes, and expert travel insights.</p>
 				
 				<div class="button-w3ls mt-xl-5 mt-4" style={{float:'left',margin:'0.2rem'}}>
-					<a href="/BookRide" class="btn animated-button">Book Ride</a>
+					<a href="/BookRide" class="btn animated-button">Book your Ride</a>
 				</div>
 
 				<div class="button-w3ls mt-xl-5 mt-4" style={{float:'left',margin:'0.2rem'}}>
