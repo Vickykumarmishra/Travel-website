@@ -37,7 +37,7 @@ export default function BookRide() {
 
   const handleDelete = async (_id) => {
     if (role === 'admin') {
-      const response = await fetch(`http://localhost:8000/delete/${_id}`, {
+      const response = await fetch(`https://bharatvarsh.onrender.com/delete/${_id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
