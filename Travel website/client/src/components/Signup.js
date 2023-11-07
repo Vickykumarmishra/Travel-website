@@ -7,6 +7,16 @@ import { SchemaForm } from '../schema/schemaform';
 import Swal from 'sweetalert2';
 export default function Signup() {
 
+  const myStyle={
+    backgroundImage: "url(/rain-stoppers.jpg)",
+    height:'100vh',
+    marginTop:'-80px',
+    
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center', // This centers the image both horizontally and vertically
+    
+};
     const initialValues={
 
         username:"",
@@ -77,9 +87,11 @@ export default function Signup() {
   return (
 <div >
 
-
+<h1 class="logo text-center">
+					<a href="#">RideReady</a>
+				</h1>
 <center><div style={{marginTop:"4rem"}}>
-    <form class="form" onSubmit={handleSubmit}  >
+    <form class="form" onSubmit={handleSubmit}   >
     <p class="title">SignUp Page </p>
     <p class="message">Signup now and get full access to our app. </p>
         <center><div class="flex" >

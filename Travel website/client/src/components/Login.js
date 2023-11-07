@@ -41,9 +41,12 @@ export default function Login() {
   };
 
   return (
-    <div style={{ marginTop: '4rem' }}>
+    <div >
+      <h1 class="logo text-center">
+					<a href="#">RideReady</a>
+				</h1>
       <center>
-        <form className="form">
+        <form className="form" style={{marginTop:"3rem"}}>
           <p className="title">Login Page</p>
           <p className="message">Login now and get full access to our app.</p>
           <div className="flex">
