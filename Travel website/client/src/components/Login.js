@@ -46,7 +46,7 @@ export default function Login() {
       <h1 class="logo text-center">
 					<a href="#">RideReady</a>
 				</h1>
-        <p style={{color:"red"}}>After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking</p>
+        <p style={{color:"red"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
       <center>
         <form className="form" style={{marginTop:"3rem"}}>
           <p className="title">Login Page</p>

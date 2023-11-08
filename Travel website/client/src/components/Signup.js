@@ -92,7 +92,7 @@ export default function Signup() {
 					<a href="#">RideReady</a>
 				</h1>
         
-        <p style={{color:"red"}}>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</p>
+        <p style={{color:"red"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
         
 <center><div style={{marginTop:"4rem"}}>
     <form class="form" onSubmit={handleSubmit}   >
