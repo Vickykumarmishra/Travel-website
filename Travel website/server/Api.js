@@ -82,9 +82,13 @@ app.get("/get-image", async (req, res) => {
 
 app.post('/signup', async (req, res) => {
   const { username, email, password } = req.body;
+  //the data which is being sent by signup form will be inside request body.
+  //const { username, email, password } = req.body;: This line of code is using destructuring assignment in JavaScript. 
+  //It's extracting specific properties (username, email, and password) from the req.body object and assigning their values to individual variables.
+  //username, email, and password are variable names that will be created based on the properties found in req.body.
+  const existingUser = await sign.findOne({ username:username });
 
-  const existingUser = await sign.findOne({ username });
-
+  //sign is the name of model.using model we perform crud operations
   if (existingUser) {
     return res.status(400).json({ message: 'Username already taken' });
   }
