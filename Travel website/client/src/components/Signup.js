@@ -38,7 +38,7 @@ export default function Signup() {
     const navigate=useNavigate();
     const handleSignup = async (e) => {
         e.preventDefault();
-        const { username, email, password } = values;
+        const { username, email, password } = values;//values has all the data of form
         //const { username, email, password } = values;: Destructure the values object obtained from useFormik to get the form field values.  
         setUsername(username);
         setEmail(email);

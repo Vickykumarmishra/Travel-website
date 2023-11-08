@@ -108,14 +108,14 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
   const { username, email, password } = req.body;
   const user = await sign.findOne({ username:username });
-
+ //findone will return the required data object.
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed' });
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
-
-  if (!isPasswordValid) {
+//true or false will be returned in above variable.
+  if (!isPasswordValid) { //!true=false
     return res.status(401).json({ message: 'Authentication failed' });
   }
 
