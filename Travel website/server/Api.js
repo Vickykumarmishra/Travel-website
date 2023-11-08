@@ -20,7 +20,7 @@ cloudinary.config({
 });
 
 const Product = require('./SchemaRide');
-const sign = require('./SchemaForm');
+const sign = require('./SchemaForm');// the exported collection and schema is stored in sign.if we want to perform crud in db then we need it.
 require("./SchemaRide");
 require("./SchemaImage");
 
@@ -87,14 +87,14 @@ app.post('/signup', async (req, res) => {
   //It's extracting specific properties (username, email, and password) from the req.body object and assigning their values to individual variables.
   //username, email, and password are variable names that will be created based on the properties found in req.body.
   const existingUser = await sign.findOne({ username:username });
-
+  //If a document with the username specified in the query criteria is found in the "sign" collection, the existingUser variable will be assigned an object representing that document.
   //sign is the name of model.using model we perform crud operations
-  if (existingUser) {
+  if (existingUser) {//objects are considerd as trruthy value
     return res.status(400).json({ message: 'Username already taken' });
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = new sign({ username, email, password: hashedPassword });
+  const newUser = new sign({ username, email, password: hashedPassword });//creating data using model
 
   try {
     await newUser.save();
@@ -107,7 +107,7 @@ app.post('/signup', async (req, res) => {
 
 app.post('/login', async (req, res) => {
   const { username, email, password } = req.body;
-  const user = await sign.findOne({ username });
+  const user = await sign.findOne({ username:username });
 
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed' });
@@ -132,3 +132,13 @@ app.post('/login', async (req, res) => {
 app.listen(8000, () => {
   console.log('Server is running on port 8000');
 });
+
+
+/*
+
+bcrypt is a widely-used library in the realm of web development and security, primarily for securely hashing and salting passwords. Its main use is to enhance the security of user authentication systems by making it computationally expensive and time-consuming for attackers to perform password cracking.
+Here's why bcrypt is commonly used and its primary uses:
+Password Hashing: bcrypt is used to hash passwords before storing them in a database. Hashing transforms a plain text password into a fixed-length string of characters, which cannot be easily reversed to obtain the original password.
+Salting: It automatically generates and manages a random salt for each password hash. Salting is a crucial security measure because it ensures that identical passwords don't result in the same hash. Even if two users have the same password, their hashes will be different due to the unique salts. 
+This helps thwart precomputed or rainbow table attacks.
+*/
