@@ -130,7 +130,7 @@ export default function Signup() {
 
 {/* footer starts */}
 
-<div class="copy-bottom bg-li py-2">
+<div class="copy-bottom bg-li py-2" style={{backgroundColor:"#05b993"}}>
 		<div class="container-fluid">
 			<div class="d-md-flex text-center align-items-center">
 				
