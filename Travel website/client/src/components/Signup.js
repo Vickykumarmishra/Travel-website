@@ -128,6 +128,43 @@ export default function Signup() {
     <p class="signin">Already have an acount ? <a href="/Login">Signin</a> </p>
 </form></div></center>
 
+{/* footer starts */}
+
+<div class="copy-bottom bg-li py-2">
+		<div class="container-fluid">
+			<div class="d-md-flex text-center align-items-center">
+				
+				<div class="social-icons-footer mb-md-0 mb-3">
+					<ul class="list-unstyled">
+						<li>
+							<a href="#">
+								<span class="fa fa-facebook"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="fa fa-twitter"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="fa fa-google-plus"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="fa fa-instagram"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+		
+			</div>
+		</div>
+	</div>
+	
+  {/* footer ends */}
 </div>
       
       
