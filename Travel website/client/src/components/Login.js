@@ -48,7 +48,7 @@ export default function Login() {
 				</h1>
         <p style={{color:"red"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
       <center>
-        <form className="form" style={{marginTop:"3rem"}}>
+        <form className="form" style={{marginTop:"2.5rem"}}>
           <p className="title">Login Page</p>
           <p className="message">Login now and get full access to our app.</p>
           <div className="flex">
@@ -104,7 +104,7 @@ export default function Login() {
       
        {/* footer */}
 
-       <div class="copy-bottom bg-li py-2">
+       <div class="copy-bottom bg-li py-2" style={{}}>
 		<div class="container-fluid">
 			<div class="d-md-flex text-center align-items-center">
 				
