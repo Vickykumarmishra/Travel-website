@@ -56,12 +56,16 @@ export default function Signup() {
       }
 
       else{
-        const response = await fetch('https://bharatvarsh.onrender.com/signup', { // Assuming you have a signup endpoint
+        const response = await fetch('https://bharatvarsh.onrender.com/signup', { // Assuming i have a signup endpoint
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+   /*This sets the content type of the request to JSON, indicating that the data being sent in the request body is in JSON format. */
           },
           body: JSON.stringify({ username,email, password }),
+  /*This is the data being sent in the request body. It is the JSON string representation of an object containing username, email, and password properties. */
+  /*the resulting jsonstring will look like this:- {"username":"john_doe","email":"john@example.com","password":"secretpassword"}
+ */
         });
     
         if (response.ok) {
@@ -86,7 +90,7 @@ export default function Signup() {
         }
       };}
   return (
-<div >
+<div className='container' >
 
 <h1 class="logo text-center">
 					<a href="#">RideReady</a>
@@ -94,7 +98,7 @@ export default function Signup() {
         
         <p style={{color:"red"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
         
-<center><div style={{marginTop:"2.5rem"}}>
+{/* <center><div style={{marginTop:"2.5rem"}}>
     <form class="form" onSubmit={handleSubmit}   >
     <p class="title">SignUp Page </p>
     <p class="message">Signup now and get full access to our app. </p>
@@ -105,6 +109,7 @@ export default function Signup() {
           value={values.username}  onBlur={handleBlur} />
             <span>Username</span>
         </label>
+     
          
     </div> 
    
@@ -126,7 +131,47 @@ export default function Signup() {
         {errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null}
     <button class="submit" type="submit" onClick={handleSignup}>Submit</button>
     <p class="signin">Already have an acount ? <a href="/Login">Signin</a> </p>
-</form></div></center>
+</form></div></center> */}
+
+<div className='row'>
+
+  <div className='col-sm-12 col-lg-6 col-md-6'>
+  <img src='signup.jpg' className='img-fluid'></img>
+  </div>
+
+  <div className='col-sm-12 col-lg-6 col-md-6'>
+  <div style={{marginBottom:"1rem"}}> <h1 style={{color:'#05b993'}}><b>SignUp</b></h1></div>
+
+  <div class="form-floating mb-3" style={{marginTop:"1rem"}}>
+  <input type="text" class="form-control fullname" id="floatingInput1" placeholder="Full Name" name="username"
+  onChange={handleChange}
+  value={values.username}  onBlur={handleBlur}  />
+  <label for="floatingInput">User Name</label>
+</div>
+{errors.username && touched.username?(<p  style={{color:'red'}}className='form-error'>{errors.username}</p>):null}
+            <div class="form-floating mb-3" style={{}}>
+  <input type="email" class="form-control email" id="floatingInput2" placeholder="name@example.com" name="email" value={values.email} onChange={handleChange}
+           onBlur={handleBlur} />
+  <label for="floatingInput">Email address</label>
+</div>
+{errors.email && touched.email?(<p  style={{color:'red'}}className='form-error'>{errors.email}</p>):null}
+
+<div class="form-floating">
+  <input type="password" class="form-control passw" id="floatingPassword" placeholder="Password"  name="password" onChange={handleChange}
+          value={values.password}  onBlur={handleBlur} />
+  <label for="floatingPassword">Password</label>
+</div>
+{errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null}
+
+<p style={{marginBottom:"1rem",marginTop:"1rem",color:'#F28705'}}><input type="checkbox" class="ui-checkbox"  style={{marginRight:"0.5rem"}}></input>Remember Me</p>
+<button className='btn btn-primary' style={{border:"0.1rem  transparent",marginTop:"2rem",backgroundColor:"#05b993"}}  onClick={handleSignup}>SignUp</button>
+
+<p className="signin" style={{color:'black'}}>
+            Already signedUp? <a href="/Login" style={{color:"#05b993"}}>Login</a>
+          </p>
+  </div>
+
+</div>
 
 {/* footer starts */}
 

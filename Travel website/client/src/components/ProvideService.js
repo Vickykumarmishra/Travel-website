@@ -16,11 +16,6 @@ const initialValues={
   }
 export default function ProvideService() {
   
- 
- 
-
- 
-
   const [name,setName]=useState("");
   const [phone,setPhone]=useState("");
   const [pickup,setPickup]=useState("");
@@ -30,10 +25,8 @@ export default function ProvideService() {
 
   function handleClick(e){
 
-
     e.preventDefault();
 
-   
    let names=document.getElementById("name").value;
    let phones=document.getElementById("phone").value;
    let pickups=document.getElementById("pickup").value;
@@ -47,9 +40,6 @@ export default function ProvideService() {
     setPickup(pickups);
     setCharge(charges);
     setTime(timings);
-
-    
-   
   
     const url="https://bharatvarsh.onrender.com/post"
    
@@ -69,8 +59,6 @@ export default function ProvideService() {
         console.error("Error updating data:", error);
       });
 
-     
-
       Swal.fire(
         'saved',
         'Your information saved to database!',
@@ -89,7 +77,6 @@ export default function ProvideService() {
    
   }
 
-
   const {values,errors,touched,handleBlur,handleChange,handleSubmit}=useFormik({
     initialValues:initialValues,
     validationSchema:SchemaProvide,
@@ -102,15 +89,11 @@ export default function ProvideService() {
 
     const [image,setImage]=useState(null)  
   
-  
     const submitImage = async (e) => {
       e.preventDefault();
    var x= document.getElementById("inputGroupFile04").value;
 
-      /*const formData  = new FormData();: Here, a new instance of the FormData object is created.FormData is a built-in
-  JavaScript object that is used to construct a set of key/value pairs representing form fields and their values, which can then be sent to the server.
-  formData.append("image", image);: This line appends data to the formData object. It adds a field named "image" and associates it with the image variable. 
-  image presumably contains the file that you want to upload. */
+     
 
   if(x==''){
 
@@ -150,6 +133,10 @@ else{
   
   const formData = new FormData();
   formData.append("image", image);
+   /*const formData  = new FormData();: Here, a new instance of the FormData object is created.FormData is a built-in
+  JavaScript object that is used to construct a set of key/value pairs representing form fields and their values, which can then be sent to the server.
+  formData.append("image", image);: This line appends data to the formData object. It adds a field named "image" and associates it with the image variable. 
+  image presumably contains the file that you want to upload. */
   
   try {
     const result = await axios.post(
@@ -176,7 +163,6 @@ else{
     );
   }
 
-  
 }
       
     };
@@ -269,18 +255,12 @@ const { loginWithRedirect } = useAuth0();
   </div>
 </div>
 
-        
-
- 
       <div className='container' type='submit' style={{backgroundColor:"#33cc99",color:'white',marginTop:'0.5rem',marginBottom:"0.5rem"}} onClick={handleClick} ><b>Submit</b></div>
       </form>
       
     <center>
       
     <div className='container text-center'>
-
-
-
 
 <form onSubmit={submitImage} className='container'>
 <div className="input-group" style={{marginBottom:'0.5rem'}}>
@@ -292,11 +272,7 @@ const { loginWithRedirect } = useAuth0();
     </div>
       </center>  
           <div>
-             
-          
-
-
-          
+              
           </div>
         
        
@@ -332,21 +308,13 @@ const { loginWithRedirect } = useAuth0();
 					</ul>
 				</div>
 				
-				
-			
-				
-				
-		
 			</div>
 		</div>
 	</div>
 	
       </div>
 
-
   )
 }
-
-
 /*value={values.name}: Here, values.name is used to bind the value of the input field to a variable or state property called name within the values object. 
 This means that the input field's value will be controlled by the value of values.name. If values.name changes, the input field's value will update accordingly. */
