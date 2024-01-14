@@ -134,12 +134,41 @@ export default function Login() {
 
         <div class="form-floating mb-3" style={{marginTop:"1rem"}}>
   <input type="text" class="form-control fullname" id="floatingInput1" placeholder="Full Name" name="username"
-  onChange={handleChange}
+ onChange={(e) => {
+  handleChange(e);
+  setUsername(e.target.value);
+}}
   value={values.username}  onBlur={handleBlur}  />
   <label for="floatingInput">User Name</label>
 </div>
 {errors.username && touched.username?(<p  style={{color:'red'}}className='form-error'>{errors.username}</p>):null}
           
+<div class="form-floating mb-3" style={{}}>
+  <input type="email" class="form-control email" id="floatingInput2" placeholder="name@example.com" name="email" value={values.email}  onChange={(e) => {
+  handleChange(e);
+  setEmail(e.target.value);
+}}
+           onBlur={handleBlur} />
+  <label for="floatingInput">Email address</label>
+</div>
+{errors.email && touched.email?(<p  style={{color:'red'}}className='form-error'>{errors.email}</p>):null}
+
+<div class="form-floating">
+  <input type="password" class="form-control passw" id="floatingPassword" placeholder="Password"  name="password"  onChange={(e) => {
+  handleChange(e);
+  setPassword(e.target.value);
+}}
+          value={values.password}  onBlur={handleBlur} />
+  <label for="floatingPassword">Password</label>
+</div>
+{errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null}
+
+<p style={{marginBottom:"1rem",marginTop:"1rem",color:'#F28705'}}><input type="checkbox" class="ui-checkbox"  style={{marginRight:"0.5rem"}}></input>Remember Me</p>
+<button className='btn btn-primary' style={{border:"0.1rem  transparent",marginTop:"2rem",backgroundColor:"#05b993"}}  onClick={handleLogin}>Login</button>
+
+<p className="signin" style={{color:'black'}}>
+Don't have an account? <a href="/Signup" style={{color:"#05b993"}}>SignUp</a>
+          </p>
         </div>
 
       </div>
