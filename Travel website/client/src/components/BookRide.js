@@ -8,27 +8,6 @@ export default function BookRide() {
   const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
  
-  useEffect(() => {
-    getImage();
-    loader();
-  }, []);
-
-  const getImage = async () => {
-    axios
-      .get("https://bharatvarsh.onrender.com/get-image")
-      .then((response) => {
-        setAllImage(response.data);
-
-        Swal.fire(
-          'Data loaded',
-          'Data accessed from database',
-          'success'
-        )
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  };
 
   function loader() {
     let timerInterval;
@@ -98,7 +77,7 @@ export default function BookRide() {
   };
 
   return (
-    <div>
+    <div className='container'>
       <div class="main-top">
         <header>
           <div class="container-fluid">
@@ -129,15 +108,15 @@ export default function BookRide() {
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
-            const { _id, name, phone, pickup, charge, time } = soln;
+            const { _id, name, phone, pickup, charge, time,imageUrl } = soln;
             return (
               <div key={_id} className="col">
                 <div className="card h-100">
-                  {allImage && allImage[index] && (
-                    <img src={allImage[index].imageUrl} className="card-img-top" alt="..." />
-                  )}
+                 
                   <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
+
+                    <img src={imageUrl} style={{height:"10rem"}} className='img-fluid'></img>
+                    <h5 className="card-title">Driver:-{name}</h5>
                     <p className="card-text">Phone: {phone}</p>
                     <p className="card-text">Pickup Point: {pickup}</p>
                     <p className="card-text">Amount: {charge}</p>

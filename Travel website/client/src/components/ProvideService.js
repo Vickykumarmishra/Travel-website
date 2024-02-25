@@ -42,7 +42,7 @@ export default function ProvideService() {
   formData.append('time',time);
   formData.append('image',image);
   
-    const url="http://localhost:8000/post"
+    const url="https://bharatvarsh.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined){
 
@@ -180,6 +180,8 @@ export default function ProvideService() {
 </div>
 
 <br></br>
+
+<p style={{float:'left'}}>Upload your profile image</p>
 <div className="input-group" style={{marginBottom:'0.5rem'}}>
         <input type="file" accept="image/*" enctype="multipart/form-data"  className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image"  ></input>
          {/*accept="image/*" indicates that the input should accept all types of image files. */}
