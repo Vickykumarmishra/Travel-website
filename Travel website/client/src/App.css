@@ -24,6 +24,10 @@
   color: white;
 }
 
+/* delete button hide css */
+.hidden{
+ display:none;
+}
 .App-link {
   color: #05b993;
 }

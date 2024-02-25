@@ -7,11 +7,15 @@ export default function BookRide() {
   const [allImage, setAllImage] = useState(null);
   const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
- 
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
 
-   
+  const buttonhide = () => {
 
- 
+    if(role==='user'){
+    setIsButtonVisible(false);
+    }
+  };  
+
 
   useEffect(() => {
     const storedRole = localStorage.getItem('role');
@@ -65,7 +69,7 @@ Swal.fire({
   }
 
   const handleDelete = async (_id) => {
-    if (role === 'admin') {
+    if (role === 'Admin') {
       const response = await fetch(`https://bharatvarsh.onrender.com/delete/${_id}`, {
         method: 'DELETE',
         headers: {
@@ -81,13 +85,15 @@ Swal.fire({
         Swal.fire('Error', 'Failed to delete the record', 'error');
       }
     } else {
+
+   
       Swal.fire('Access Denied', 'You do not have permission to delete records', 'error');
     }
   };
 
   return (
     <>
-    <div className='container' >
+    <div className='container' onLoad={ buttonhide} >
       <div class="main-top">
         <header>
           <div class="container-fluid">
@@ -133,7 +139,8 @@ Swal.fire({
                     <p className="card-text">Pickup Point: {pickup}</p>
                     <p className="card-text">Amount: {charge}</p>
                     <p className="card-text">Time: {time}</p>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-danger">Delete</button>
+                    <button className='btn btn-success' style={{marginRight:'0.5rem'}}>BookRide</button>
+                    <button  className={isButtonVisible ? 'btn btn-danger' : 'hidden'} onClick={() => handleDelete(_id)} id="delete" >Delete</button>
                   </div>
                 </div>
               </div>
