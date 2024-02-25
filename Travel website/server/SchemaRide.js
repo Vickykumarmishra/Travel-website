@@ -7,6 +7,7 @@ const RideSchema=new mongoose.Schema({
     pickup:String,
     charge:Number,
     time:String,
+    imageUrl:String,
 
 },
 {

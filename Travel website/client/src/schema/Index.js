@@ -7,5 +7,6 @@ export const SchemaProvide = Yup.object({
   //phone: Yup.string().matches(/^[0-9]{10}$/, 'Phone number must be 10 digits').required('Please enter your phone number'),
   pickup: Yup.string().min(5).max(15).required("Please enter pickup point"),
   charge: Yup.number().min(10).max(100).required("Enter the amount you will charge"),
-  time: Yup.string().required("Enter the timing")
+  time: Yup.string().required("Enter the timing"),
+  image: Yup.mixed().required('Please upload a file'),
 });

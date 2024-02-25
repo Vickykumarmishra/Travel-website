@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const bodyParser = require('body-parser');
 require("./Connection");
 require('dotenv').config();
@@ -24,54 +24,60 @@ cloudinary.config({
 const Product = require('./SchemaRide');
 const sign = require('./SchemaForm');// the exported collection and schema is stored in sign.if we want to perform crud in db then we need it.
 require("./SchemaRide");
-require("./SchemaImage");
+//require("./SchemaImage");
 
-const photos = mongoose.model("photos");//photos is the model 
+//const photos = mongoose.model("photos");//photos is the model 
 
 app.get('/', (req, res) => {
   res.send('server working');
 });
 
-app.post('/post', async (req, res) => {
-  let data = new Product(req.body);
-  let result = await data.save();
-  res.send(result);
+// app.post('/post', async (req, res) => {
+//   let data = new Product(req.body);
+//   let result = await data.save();
+//   res.send(result);
+// });
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: 'uploadedImages/'
 });
+
+ const upload = multer({ storage: storage });
+
+ app.post('/post',upload.single('image'),async function(req,res,next){
+  cloudinary.uploader.upload(req.file.path, async function(err,result){
+   //console.log(formData)
+   if (err) {
+       console.log(err);
+       res.status(500).send(err);
+     } else {
+       console.log('File uploaded to Cloudinary');
+      
+       let data = new Product(req.body);
+       
+        console.log("data" + data)//yaha image url khali hoga
+      data.imageUrl = result.secure_url; 
+      console.log("data" + data)//yaha ham imageurl add kar diye
+      let savedData = await data.save();
+       
+     res.send(savedData);
+      // res.status(200).send(result);
+     }
+
+  })
+ 
+})
+
 
 app.delete("/delete/:_id", async (req, resp) => {
   let data = await Product.deleteOne(req.params);
   resp.send(data);
 });
 
-const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: 'uploads/'
-});
 
-const upload = multer({ storage: storage });
-/*Here,a Multer instance is created by passing the storage configuration. This upload instance is used to handle file uploads.*/
-app.post('/upload', upload.single('image'), async function (req, res, next) {
-  cloudinary.uploader.upload(req.file.path, async function (err, result) {
-    if (err) {
-      console.log(err);
-      res.status(500).send(err);
-    } else {
-      console.log('File uploaded to Cloudinary');
-      const photo = new photos();/*creating a new photo instance. likewise we are creating new instanvce when we store info of new users in form collection.
-      similarly we are storing a new photo or image hence we are creating a instance for that and then we are setting its imageurl property*/
-      photo.imageUrl = result.secure_url;
-      await photo.save();
-      res.status(200).send(result);
-    }
-  });
-/*This section handles the response from Cloudinary after attempting to upload the file.
-If an error occurs during the upload, it logs the error and sends a 500 Internal Server Error response.
-If the upload is successful, it logs a success message, creates a new photo instance, sets its imageUrl property to the Cloudinary URL, 
-saves the photo to the database (assuming photos is a model/schema), and sends a 200 OK response with the Cloudinary result.
-
- */
-});
 
 app.get("/getter", async (req, res) => {
   Product.find({}).then((data) => {
@@ -79,15 +85,7 @@ app.get("/getter", async (req, res) => {
   });
 });
 
-app.get("/get-image", async (req, res) => {
-  try {
-    photos.find({}).then((data) => {
-      res.send(data);
-    });
-  } catch (error) {
-    res.json({ status: error });
-  }
-});
+
 
 app.post('/signup', async (req, res) => {
   const { username, email, password } = req.body;
@@ -102,7 +100,7 @@ app.post('/signup', async (req, res) => {
     return res.status(400).json({ message: 'Username already taken' });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);//10 is cost factor
+  const hashedPassword = await bcryptjs.hash(password, 10);//10 is cost factor
   const newUser = new sign({ username, email, password: hashedPassword });//creating data using model
 
   try {
@@ -122,7 +120,7 @@ app.post('/login', async (req, res) => {
     return res.status(401).json({ message: 'Authentication failed' });
   }
 
-  const isPasswordValid = await bcrypt.compare(password, user.password);
+  const isPasswordValid = await bcryptjs.compare(password, user.password);
 //true or false will be returned in above variable.
   if (!isPasswordValid) { //!true=false
     return res.status(401).json({ message: 'Authentication failed' });
