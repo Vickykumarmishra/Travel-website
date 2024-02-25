@@ -1,7 +1,7 @@
 
 import './App.css';
 import About from './components/About';
-import Gallery from './components/Gallery';
+
 import Contact from './components/Contact';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './components/Home';
@@ -17,7 +17,6 @@ function App() {
 
 <Routes>
   <Route path='/About' element={<About/>}></Route>
-  <Route path='/Gallery' element={<Gallery/>}></Route>
   <Route path='/Contact' element={<Contact/>}></Route>
   <Route path='/ProvideService' element={<ProvideService/>}></Route>
   <Route path='/BookRide' element={<BookRide/>}></Route>

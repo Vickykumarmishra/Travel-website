@@ -24,24 +24,7 @@ export default function Home() {
 				<h1 class="logo text-center">
 					<a href="index.html">RideReady</a>
 				</h1>
-				{/* <!-- menu --> */}
-				{/* <div class="nav-menus"  style={{marginRight:'1rem'}}>
-					<ul id="menu">
-						<li>
-							<input id="check02" type="checkbox" name="menu" />
-							<label for="check02"><span class="fa fa-bars" aria-hidden="true"></span></label>
-							<ul class="submenu">
-								<li><a href="/" class="active">Home</a></li>
-								<li><a href="/About">About Us</a></li>
-								<li><a href="/ProvideService">Service Providers</a></li>
-								<li><a href="/BookRide">Vehicles Details</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="/Gallery">Gallery</a></li>
-								<li><a href="/Contact">Contact Us</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div> */}
+				
 				{/* <!-- //menu --> */}
 			</div>
 		</header>
@@ -155,35 +138,7 @@ export default function Home() {
 	</div>
 
 	{/* <!-- copyright bottom --> */}
-	<div class="copy-bottom bg-li py-2">
-		<div class="container-fluid">
-			<div class="d-md-flex text-center align-items-center">
-				{/* <!-- footer social icons --> */}
-				<div class="social-icons-footer mb-md-0 mb-3">
-					<ul class="list-unstyled">
-						
-						<li>
-							<a href="#">
-								<span class="fa fa-twitter"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-google-plus"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-instagram"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				
-				
-			</div>
-		</div>
-	</div>
+	
 	{/* <!-- //copyright bottom --> */}
     </div>
   )

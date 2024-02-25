@@ -129,7 +129,7 @@ app.post('/login', async (req, res) => {
   let token;
   if (username === "Vicky1999") {
     //generating token for admin role
-    token = jwt.sign({ userId: user._id, role: 'admin' }, 'your_secret_key', { expiresIn: '1h' });
+    token = jwt.sign({ userId: user._id, role: 'Admin' }, 'your_secret_key', { expiresIn: '1h' });
   } else {
     //generating token for users role
     token = jwt.sign({ userId: user._id, role: 'user' }, 'your_secret_key', { expiresIn: '1h' });

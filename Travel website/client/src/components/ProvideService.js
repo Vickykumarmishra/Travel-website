@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useFormik } from 'formik'
 import * as yup from "yup";
 import { SchemaProvide } from '../schema/Index';
+import Footer from './Footer';
 const initialValues={
 
   name:"",
@@ -54,6 +55,12 @@ export default function ProvideService() {
       })
       .then(() => {
         console.log("Data updated successfully");
+        document.getElementById("name").value=''
+        document.getElementById("phone").value=''
+        document.getElementById("pickup").value=''
+        document.getElementById("charge").value=''
+        document.getElementById("time").value=''
+        document.getElementById("inputGroupFile04").value=''
       })
       .catch((error) => {
         console.error("Error updating data:", error);
@@ -64,6 +71,8 @@ export default function ProvideService() {
         'Your information saved to database!',
         'success'
       )
+
+        
 
        
     }
@@ -105,6 +114,7 @@ export default function ProvideService() {
       
  
   return (
+    <>
     <div>
               <div class="main-top">
 		{/* <!-- header --> */}
@@ -124,8 +134,6 @@ export default function ProvideService() {
 								<li><a href="/About">About Us</a></li>
 								<li><a href="/ProvideService" class="active">Service Providers</a></li>
 								<li><a href="/BookRide">Vehicles Details</a></li>
-								
-								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact" >Contact Us</a></li>
                 <li> <a href="/"   style={{color:"black"}}>Logout</a></li>
 							</ul>
@@ -210,41 +218,10 @@ export default function ProvideService() {
     </div>
 
 
-    <div class="copy-bottom bg-li py-2">
-		<div class="container-fluid">
-			<div class="d-md-flex text-center align-items-center">
-				
-				<div class="social-icons-footer mb-md-0 mb-3">
-					<ul class="list-unstyled">
-						<li>
-							<a href="#">
-								<span class="fa fa-facebook"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-twitter"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-google-plus"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-instagram"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
-		</div>
-	</div>
+   <Footer></Footer>
 	
       </div>
-
+      </>
   )
 }
 /*value={values.name}: Here, values.name is used to bind the value of the input field to a variable or state property called name within the values object. 

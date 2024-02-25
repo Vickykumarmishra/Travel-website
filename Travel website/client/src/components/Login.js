@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik'
 import * as yup from "yup";
+import Footer from './Footer';
 import { SchemaForm } from '../schema/schemaform';
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -65,6 +66,8 @@ export default function Login() {
   };
 
   return (
+
+    <>
     <div className='container' >
       <h1 class="logo text-center">
 					<a href="#">RideReady</a>
@@ -176,44 +179,8 @@ Don't have an account? <a href="/Signup" style={{color:"#05b993"}}>SignUp</a>
       
        {/* footer */}
 
-       <div class="copy-bottom bg-li py-2" style={{}}>
-		<div class="container-fluid">
-			<div class="d-md-flex text-center align-items-center">
-				
-				<div class="social-icons-footer mb-md-0 mb-3">
-					<ul class="list-unstyled">
-						<li>
-							<a href="#">
-								<span class="fa fa-facebook"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-twitter"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-google-plus"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-instagram"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				
-				
-			
-				
-				
-		
-			</div>
-		</div>
-	</div>
-	{/* footer ends */}
-    </div>
+       
+    </div> 
+    <Footer></Footer> </>
   );
 }

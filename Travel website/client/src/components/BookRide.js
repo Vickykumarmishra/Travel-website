@@ -2,36 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Contact from './Contact';
-
+import Footer from './Footer';
 export default function BookRide() {
   const [allImage, setAllImage] = useState(null);
   const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
  
 
-  function loader() {
-    let timerInterval;
-    Swal.fire({
-      title: 'Loading from database',
-      html: 'I will close in <b></b> milliseconds.',
-      timer: 100000,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-        const b = Swal.getHtmlContainer().querySelector('b');
-        timerInterval = setInterval(() => {
-          b.textContent = Swal.getTimerLeft();
-        }, 100);
-      },
-      willClose: () => {
-        clearInterval(timerInterval);
-      },
-    }).then((result) => {
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log('Closed by the timer');
-      }
-    });
-  }
+   
+
+ 
 
   useEffect(() => {
     const storedRole = localStorage.getItem('role');
@@ -39,10 +19,37 @@ export default function BookRide() {
   }, []);
 
   useEffect(() => {
+
+    let timerInterval;
+Swal.fire({
+  title: "...Loading!",
+  html: "I will close in <b></b> milliseconds.",
+  timer: 20000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+    const timer = Swal.getPopup().querySelector("b");
+    timerInterval = setInterval(() => {
+      timer.textContent = `${Swal.getTimerLeft()}`;
+    }, 100);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("I was closed by the timer");
+  }
+});
+
     axios.get("https://bharatvarsh.onrender.com/getter")
       .then(response => {
+        if(response.ok=true){
+          Swal.close()
+          
+        }
         setInfo(response.data);
-        loaded();
       })
       .catch(error => {
         console.error("Error fetching data:", error);
@@ -50,11 +57,11 @@ export default function BookRide() {
   }, []);
 
   function loaded(){
-    Swal.fire(
-      'Data loaded',
-      'Data accessed from database',
-      'success'
-    )
+    // Swal.fire(
+    //   'Data loaded',
+    //   'Data accessed from database',
+    //   'success'
+    // )
   }
 
   const handleDelete = async (_id) => {
@@ -67,7 +74,9 @@ export default function BookRide() {
       });
 
       if (response.ok) {
+
         Swal.fire('Deleted', 'Record deleted successfully', 'success');
+        window.location.reload()//reload hoga page
       } else {
         Swal.fire('Error', 'Failed to delete the record', 'error');
       }
@@ -77,14 +86,16 @@ export default function BookRide() {
   };
 
   return (
-    <div className='container'>
+    <>
+    <div className='container' >
       <div class="main-top">
         <header>
           <div class="container-fluid">
             <h1 class="logo text-center">
               <a href="index.html">RideReady Available Bikes Details</a>
             </h1>
-            <h6 style={{color:"red",margin:'1rem'}}> {role} mode</h6>
+           
+            <br></br>
             <div class="nav-menus">
               <ul id="menu">
                 <li>
@@ -94,7 +105,6 @@ export default function BookRide() {
                     <li><a href="/About">About Us</a></li>
                     <li><a href="/ProvideService">Service Providers</a></li>
                     <li><a href="/BookRide" class="active">Vehicles Details</a></li>
-                    <li><a href="Gallery">Gallery</a></li>
                     <li><a href="/Contact">Contact Us</a></li>
                     <li><a href="/" style={{color:"black"}}>Logout</a></li>
                   </ul>
@@ -103,8 +113,10 @@ export default function BookRide() {
             </div>
           </div>
         </header>
+       
       </div>
       <br></br><br></br><br></br>
+      <h6 style={{color:"red",margin:'1rem'}}> {role} mode</h6>
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
@@ -115,7 +127,7 @@ export default function BookRide() {
                  
                   <div className="card-body">
 
-                    <img src={imageUrl} style={{height:"10rem"}} className='img-fluid'></img>
+                    <img src={imageUrl} style={{height:"10rem",width:'10rem',borderRadius:'100%',border:'0.1rem solid grey'}} className='img-fluid'></img>
                     <h5 className="card-title">Driver:-{name}</h5>
                     <p className="card-text">Phone: {phone}</p>
                     <p className="card-text">Pickup Point: {pickup}</p>
@@ -129,20 +141,10 @@ export default function BookRide() {
           })}
         </div>
       </div>
-      <div class="copy-bottom bg-li py-2">
-        <div class="container-fluid">
-          <div class="d-md-flex text-center align-items-center">
-            <div class="social-icons-footer mb-md-0 mb-3">
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+      
     </div>
+    <Footer></Footer>
+    </>
   );
 }

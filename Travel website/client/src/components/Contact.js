@@ -1,11 +1,10 @@
 import React from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
+import Footer from './Footer';
 export default function Contact() {
 	
   return (
-    <div>
-      
-
+	<>
+    <div style={{marginBottom:'0rem'}}>
       <div class="main-top">
 		{/* <!-- header --> */}
 		<header>
@@ -24,8 +23,6 @@ export default function Contact() {
 								<li><a href="/About">About Us</a></li>
 								<li><a href="/ProvideService">Service Providers</a></li>
 								<li><a href="/BookRide">Vehicles Details</a></li>
-								
-								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact" class="active">Contact Us</a></li>
 								<li> <a href="/"   style={{color:"black"}} >Logout</a></li>
 							</ul>
@@ -66,45 +63,9 @@ export default function Contact() {
 	{/* <!-- //contact -->
 
 	<!-- copyright bottom --> */}
-	<div class="copy-bottom bg-li py-2">
-		<div class="container-fluid">
-			<div class="d-md-flex text-center align-items-center">
-				{/* <!-- footer social icons --> */}
-				<div class="social-icons-footer mb-md-0 mb-3">
-					<ul class="list-unstyled">
-						<li>
-							<a href="#">
-								<span class="fa fa-facebook"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-twitter"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-google-plus"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-instagram"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				{/* <!-- //footer social icons -->
-				
-				
-			
-				{/* <!-- //move top icon --> */}
-			</div>
-		</div>
-	</div>
 	
-
-
     </div>
+	<Footer></Footer>
+	</>
   )
 }

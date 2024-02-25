@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as yup from "yup";
 import { SchemaForm } from '../schema/schemaform';
 import Swal from 'sweetalert2';
+import Footer from './Footer';
 export default function Signup() {
 
   const myStyle={
@@ -90,6 +91,7 @@ export default function Signup() {
         }
       };}
   return (
+    <>
 <div className='container' >
 
 <h1 class="logo text-center">
@@ -175,43 +177,11 @@ export default function Signup() {
 
 {/* footer starts */}
 
-<div class="copy-bottom bg-li py-2" style={{}}>
-		<div class="container-fluid">
-			<div class="d-md-flex text-center align-items-center">
-				
-				<div class="social-icons-footer mb-md-0 mb-3">
-					<ul class="list-unstyled">
-						<li>
-							<a href="#">
-								<span class="fa fa-facebook"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-twitter"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-google-plus"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-instagram"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				
-		
-			</div>
-		</div>
-	</div>
-	
+
+
   {/* footer ends */}
 </div>
-      
-      
+<Footer></Footer>   
+</>  
   )
 }

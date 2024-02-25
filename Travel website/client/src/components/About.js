@@ -1,16 +1,17 @@
 import React from 'react'
-import Gallery from './Gallery'
+
 import Contact from './Contact'
 import ProvideService from './ProvideService'
 import BookRide from './BookRide'
-
+import Footer from './Footer'
 export default function About() {
 
  
  
 
   return (
-    <div>
+	<>
+    <div style={{marginBottom:'0rem'}}>
       
       <div class="main-top">
 	
@@ -30,8 +31,6 @@ export default function About() {
 								<li><a href="/About" class="active">About Us</a></li>
 								<li><a href="/ProvideService">Service Providers</a></li>
 								<li><a href="/BookRide">Vehicles Details</a></li>
-								
-								<li><a href="/Gallery">Gallery</a></li>
 								<li><a href="/Contact">Contact Us</a></li>
 								 <li> <a href="/"   style={{color:"black"}} >Logout</a></li>
 							</ul>
@@ -66,44 +65,13 @@ export default function About() {
 		</div>
 	</section>
 	
-	<div class="copy-bottom bg-li py-2">
-		<div class="container-fluid">
-			<div class="d-md-flex text-center align-items-center">
-				
-				<div class="social-icons-footer mb-md-0 mb-3">
-					<ul class="list-unstyled">
-						<li>
-							<a href="#">
-								<span class="fa fa-facebook"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-twitter"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-google-plus"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="fa fa-instagram"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				
-				
-			
-				
-				
-		
-			</div>
-		</div>
-	</div>
+	{/* footer */}
+
+	
+
 	
     </div>
+
+<Footer></Footer></>
   )
 }
