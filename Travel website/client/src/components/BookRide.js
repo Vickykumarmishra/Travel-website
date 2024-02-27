@@ -3,14 +3,18 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import Contact from './Contact';
 import Footer from './Footer';
+import Navbar from './Navbar';
 export default function BookRide() {
   const [allImage, setAllImage] = useState(null);
   const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
-
+  const [data,setdata]=useState([]);
+  var driverphone;
+  var pickup;
+  var pickuptime;
   const buttonhide = () => {
-
+ 
     if(role==='user'){
     setIsButtonVisible(false);
     }
@@ -60,12 +64,55 @@ Swal.fire({
       });
   }, []);
 
-  function loaded(){
-    // Swal.fire(
-    //   'Data loaded',
-    //   'Data accessed from database',
-    //   'success'
-    // )
+  async function handlebooking(_id){
+
+    await axios.get(`http://localhost:8000/getbooking/${_id}`)
+    .then(response => {
+      if(response.ok=true){
+       
+       
+           drivername=response.data.name;
+           driverphone=response.data.phone;
+           pickup=response.data.pickup;
+           pickuptime=response.data.time;
+           console.log("booked driver name:",drivername)
+           console.log("booked driver phone no:", driverphone)
+           console.log("pickup point:", pickup)
+           console.log("pickup time",pickuptime)
+       
+      }
+      
+     // console.log("data is:",data)
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+
+    });
+    
+    var username=localStorage.getItem('username');
+    var useremail=localStorage.getItem('email');
+    var driverid=_id.slice(0, 8)//first 8 letter only stored
+    var drivername;
+    
+    console.log('username:',username)
+    console.log("driver id:",driverid)
+    
+    const url="http://localhost:8000/bookings";
+
+    fetch(url,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({username,useremail, driverid,drivername,driverphone,pickup,pickuptime})
+    })
+    .then(() => {
+      console.log("Data updated successfully");
+    })
+    .catch((error) => {
+      console.error("Error updating data:", error);
+    });
+
   }
 
   const handleDelete = async (_id) => {
@@ -93,36 +140,13 @@ Swal.fire({
 
   return (
     <>
+    <Navbar></Navbar>
     <div className='container' onLoad={ buttonhide} >
       <div class="main-top">
-        <header>
-          <div class="container-fluid">
-            <h1 class="logo text-center">
-              <a href="index.html">RideReady Available Bikes Details</a>
-            </h1>
-           
-            <br></br>
-            <div class="nav-menus">
-              <ul id="menu">
-                <li>
-                  <input id="check02" type="checkbox" name="menu" />
-                  <label for="check02"><span class="fa fa-bars" aria-hidden="true"></span></label>
-                  <ul class="submenu">
-                    <li><a href="/About">About Us</a></li>
-                    <li><a href="/ProvideService">Service Providers</a></li>
-                    <li><a href="/BookRide" class="active">Vehicles Details</a></li>
-                    <li><a href="/Contact">Contact Us</a></li>
-                    <li><a href="/" style={{color:"black"}}>Logout</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </header>
-       
+        
       </div>
       <br></br><br></br><br></br>
-      <h6 style={{color:"red",margin:'1rem'}}> {role} mode</h6>
+     <b> <h6 style={{color:"red",margin:'1rem'}}> {role} mode</h6></b>
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
@@ -135,12 +159,13 @@ Swal.fire({
 
                     <img src={imageUrl} style={{height:"10rem",width:'10rem',borderRadius:'100%',border:'0.1rem solid grey'}} className='img-fluid'></img>
                     <h5 className="card-title">Driver:-{name}</h5>
+                    <p className="card-text"><b>Id: {_id.slice(0,8)}</b></p>
                     <p className="card-text">Phone: {phone}</p>
                     <p className="card-text">Pickup Point: {pickup}</p>
                     <p className="card-text">Amount: {charge}</p>
                     <p className="card-text">Time: {time}</p>
-                    <button className='btn btn-success' style={{marginRight:'0.5rem'}}>BookRide</button>
-                    <button  className={isButtonVisible ? 'btn btn-danger' : 'hidden'} onClick={() => handleDelete(_id)} id="delete" >Delete</button>
+                    <button className='btn btn-success' style={{margin:'0.5rem'}} onClick={()=>handlebooking(_id)}>BookRide</button>
+                    <button  className={isButtonVisible ? 'btn btn-danger' : 'hidden'} style={{margin:'0.5rem'}} onClick={() => handleDelete(_id)} id="delete" >Delete</button>
                   </div>
                 </div>
               </div>

@@ -57,6 +57,29 @@ export default function Signup() {
       }
 
       else{
+
+        let timerInterval;
+        Swal.fire({
+          title: "...Signing you up!",
+          html: "I will close in <b></b> milliseconds.",
+          timer: 80000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+              timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
+        });
         const response = await fetch('https://bharatvarsh.onrender.com/signup', { // Assuming i have a signup endpoint
           method: 'POST',
           headers: {
@@ -70,6 +93,8 @@ export default function Signup() {
         });
     
         if (response.ok) {
+
+          Swal.close()
         console.log('response:' , response)
                 navigate('/Login')
               
@@ -94,46 +119,13 @@ export default function Signup() {
     <>
 <div className='container' >
 
-<h1 class="logo text-center">
-					<a href="#">RideReady</a>
+<h1 class=" text-center" style={{color:"#05b993"}}>
+					<b>RideShare</b>
 				</h1>
         
         <p style={{color:"#05b993"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
         
-{/* <center><div style={{marginTop:"2.5rem"}}>
-    <form class="form" onSubmit={handleSubmit}   >
-    <p class="title">SignUp Page </p>
-    <p class="message">Signup now and get full access to our app. </p>
-        <center><div class="flex" >
-        <label>
-            <input class="input" type="text" placeholder="" required="" name="username" 
-          autoComplete="username" onChange={handleChange}
-          value={values.username}  onBlur={handleBlur} />
-            <span>Username</span>
-        </label>
-     
-         
-    </div> 
-   
-        {errors.username && touched.username?(<p  style={{color:'red'}}className='form-error'>{errors.username}</p>):null}
-     </center>
-            
-    <label>
-        <input class="input" type="email" placeholder="" required="" name="email" value={values.email}  onBlur={handleBlur} onChange={handleChange}/>
-        <span>Email</span>
-    </label> 
-    {errors.email && touched.email?(<p  style={{color:'red'}}className='form-error'>{errors.email}</p>):null}
-    <label>
-        <input class="input" type="password" placeholder="" required=""  
-          name="password" autoComplete="new-password" onChange={handleChange}
-          value={values.password}  onBlur={handleBlur} />
-        <span>Password</span>
-    </label>
 
-        {errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null}
-    <button class="submit" type="submit" onClick={handleSignup}>Submit</button>
-    <p class="signin">Already have an acount ? <a href="/Login">Signin</a> </p>
-</form></div></center> */}
 
 <div className='row'>
 
@@ -175,11 +167,6 @@ export default function Signup() {
 
 </div>
 
-{/* footer starts */}
-
-
-
-  {/* footer ends */}
 </div>
 <Footer></Footer>   
 </>  

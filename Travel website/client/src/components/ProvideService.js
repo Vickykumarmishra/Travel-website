@@ -4,9 +4,11 @@ import  axios from "axios";
 import { useRef } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useFormik } from 'formik'
+
 import * as yup from "yup";
 import { SchemaProvide } from '../schema/Index';
 import Footer from './Footer';
+import Navbar from './Navbar';
 const initialValues={
 
   name:"",
@@ -115,40 +117,15 @@ export default function ProvideService() {
  
   return (
     <>
+    <Navbar></Navbar>
     <div>
               <div class="main-top">
-		{/* <!-- header --> */}
-		<header>
-			<div class="container-fluid">
-				<h1 class="logo text-center" style={{marginBottom:"3rem"}}>
-					<a href="#">RideReady</a>
-				</h1>
-				{/* <!-- menu --> */}
-				<div class="nav-menus"  >
-					<ul id="menu">
-						<li>
-							<input id="check02" type="checkbox" name="menu"  style={{marginRight:'1rem'}} />
-							<label for="check02"><span class="fa fa-bars" aria-hidden="true" ></span></label>
-							<ul class="submenu">
-								{/* <li><a href="/">Home</a></li> */}
-								<li><a href="/About">About Us</a></li>
-								<li><a href="/ProvideService" class="active">Service Providers</a></li>
-								<li><a href="/BookRide">Vehicles Details</a></li>
-								<li><a href="/Contact" >Contact Us</a></li>
-                <li> <a href="/"   style={{color:"black"}}>Logout</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				{/* <!-- //menu --> */}
-			</div>
-		</header>
-		{/* <!-- //header --> */}
+	
 	</div>
     <div className="container" style={{marginTop:"2rem"}}>
         
        <h1 style={{fontFamily:"cursive" ,color:"white"}}><b>Service Provider's Details</b> </h1>
-  <p style={{color:'darkorange'}}>[In below form bikers need to upload their bikes's images and all other details]</p>
+  <p style={{color:'darkorange'}}>[In below form vehicle owners need to upload their vehicle's images and all other details]</p>
        
 
        <form >
@@ -212,11 +189,9 @@ export default function ProvideService() {
       </center>  
           <div>
               
-          </div>
-        
+          </div>     
        
     </div>
-
 
    <Footer></Footer>
 	

@@ -1,38 +1,14 @@
 import React from 'react'
 import Footer from './Footer';
+import Navbar from './Navbar';
 export default function Contact() {
 	
   return (
 	<>
+	<Navbar></Navbar>
     <div style={{marginBottom:'0rem'}}>
       <div class="main-top">
-		{/* <!-- header --> */}
-		<header>
-			<div class="container-fluid" >
-				<h1 class="logo text-center">
-					<a href="index.html">Let's Go</a>
-				</h1>
-				{/* <!-- menu --> */}
-				<div class="nav-menus">
-					<ul id="menu">
-						<li>
-							<input id="check02" type="checkbox" name="menu" />
-							<label for="check02"><span class="fa fa-bars" aria-hidden="true"></span></label>
-							<ul class="submenu">
-								{/* <li><a href="/">Home</a></li> */}
-								<li><a href="/About">About Us</a></li>
-								<li><a href="/ProvideService">Service Providers</a></li>
-								<li><a href="/BookRide">Vehicles Details</a></li>
-								<li><a href="/Contact" class="active">Contact Us</a></li>
-								<li> <a href="/"   style={{color:"black"}} >Logout</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				{/* <!-- //menu --> */}
-			</div>
-		</header>
-		{/* <!-- //header --> */}
+		
 	</div>
 
 	{/* <!-- contact --> */}

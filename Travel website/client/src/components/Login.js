@@ -29,7 +29,28 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-
+    let timerInterval;
+    Swal.fire({
+      title: "...Logging you in!",
+      html: "I will close in <b></b> milliseconds.",
+      timer: 60000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup().querySelector("b");
+        timerInterval = setInterval(() => {
+          timer.textContent = `${Swal.getTimerLeft()}`;
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("I was closed by the timer");
+      }
+    });
     
     const response = await fetch('https://bharatvarsh.onrender.com/login', {
       method: 'POST',
@@ -40,9 +61,12 @@ export default function Login() {
     });
 
     if (response.ok) {
+
+      Swal.close()
       const data = await response.json();
       localStorage.setItem('token', data.token);
-
+      localStorage.setItem('username',username)
+      localStorage.setItem('email',email)
       const token = data.token;
       const tokenParts = token.split('.');
       /*token.split('.') splits the JWT string into an array of substrings using a dot (.) as the delimiter.
@@ -69,63 +93,11 @@ export default function Login() {
 
     <>
     <div className='container' >
-      <h1 class="logo text-center">
-					<a href="#">RideReady</a>
+    <h1 class=" text-center" style={{color:"#05b993"}}>
+					<b>RideShare</b>
 				</h1>
         <p style={{color:"#05b993"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
-      {/* <center>
-        <form className="form" style={{marginTop:"2.5rem"}}>
-          <p className="title">Login Page</p>
-          <p className="message">Login now and get full access to our app.</p>
-          <div className="flex">
-            <label>
-              <input
-                className="input"
-                type="text"
-                placeholder=""
-                required=""
-                id="username"
-                name="username"
-                autoComplete="username"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
-              />
-              <span>Username</span>
-            </label>
-          </div>
-          <label>
-            <input
-              className="input"
-              type="email"
-              placeholder=""
-              required=""
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <span>Email</span>
-          </label>
-          <label>
-            <input
-              className="input"
-              type="password"
-              placeholder=""
-              required=""
-              name="password"
-              autoComplete="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <span>Password</span>
-          </label>
-          <button className="submit" onClick={handleLogin}>
-            Login
-          </button>
-          <p className="signin">
-            Don't have an account? <a href="/Signup">SignUp</a>
-          </p>
-        </form>
-      </center> */}
+     
 
       <div className='row'>
 

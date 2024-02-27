@@ -23,6 +23,8 @@ cloudinary.config({
 
 const Product = require('./SchemaRide');
 const sign = require('./SchemaForm');// the exported collection and schema is stored in sign.if we want to perform crud in db then we need it.
+const bookings=require('./BookingSchema')
+const booked=require('./BookingSchema')
 require("./SchemaRide");
 //require("./SchemaImage");
 
@@ -85,7 +87,18 @@ app.get("/getter", async (req, res) => {
   });
 });
 
+app.get("/getbooking/:_id", async (req, res) => {
+  Product.findById(req.params).then((data) => {
+    res.send(data);
+  });
+});
 
+
+app.get("/getbooked", async (req, res) => {
+  booked.find({}).then((data) => {
+    res.send(data);
+  });
+}); 
 
 app.post('/signup', async (req, res) => {
   const { username, email, password } = req.body;
@@ -111,6 +124,14 @@ app.post('/signup', async (req, res) => {
     res.status(500).json({ message: 'Failed to register user' });
   }
 });
+
+app.post('/bookings', async (req,res)=>{
+ const {username,useremail,driverid,drivername,driverphone,pickup,pickuptime}=req.body
+ const newbooking= new bookings({username,useremail, driverid,drivername,driverphone,pickup,pickuptime})
+
+ await newbooking.save()
+})
+
 
 app.post('/login', async (req, res) => {
   const { username, email, password } = req.body;

@@ -9,6 +9,7 @@ import BookRide from './components/BookRide';
 import ProvideService from './components/ProvideService';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Bookings from './components/Bookings';
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
 
 <Routes>
   <Route path='/About' element={<About/>}></Route>
+  <Route path='/Bookings' element={<Bookings/>}> </Route>
   <Route path='/Contact' element={<Contact/>}></Route>
   <Route path='/ProvideService' element={<ProvideService/>}></Route>
   <Route path='/BookRide' element={<BookRide/>}></Route>

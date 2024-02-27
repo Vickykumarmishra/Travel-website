@@ -4,43 +4,15 @@ import Contact from './Contact'
 import ProvideService from './ProvideService'
 import BookRide from './BookRide'
 import Footer from './Footer'
+import Navbar from './Navbar'
 export default function About() {
-
- 
- 
 
   return (
 	<>
+	  <Navbar></Navbar>
     <div style={{marginBottom:'0rem'}}>
       
-      <div class="main-top">
-	
-		<header>
-			<div class="container-fluid">
-				<h1 class="logo text-center">
-					<a href="/">RideReady</a>
-				</h1>
-			
-				<div class="nav-menus">
-					<ul id="menu">
-						<li>
-							<input id="check02" type="checkbox" name="menu" />
-							<label for="check02"><span class="fa fa-bars" aria-hidden="true"></span></label>
-							<ul class="submenu">
-								{/* <li><a href="/">Home</a></li> */}
-								<li><a href="/About" class="active">About Us</a></li>
-								<li><a href="/ProvideService">Service Providers</a></li>
-								<li><a href="/BookRide">Vehicles Details</a></li>
-								<li><a href="/Contact">Contact Us</a></li>
-								 <li> <a href="/"   style={{color:"black"}} >Logout</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
-		</header>
-	</div>
+      
 
 	
 	<section class="about">

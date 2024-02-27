@@ -2,6 +2,7 @@ import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Navbar from './Navbar';
 export default function Home() {
 
  const { loginWithRedirect } = useAuth0();
@@ -16,13 +17,13 @@ export default function Home() {
   }
   return (
     <div>
-      
+     
       <div class="main-top">
 		{/* <!-- header --> */}
 		<header>
-			<div class="container-fluid"  >
-				<h1 class="logo text-center">
-					<a href="index.html">RideReady</a>
+			<div class="container-fluid "  >
+				<h1 class="logo text-center"  style={{color:'white'}}>
+					<b>RideShare Campus Connect</b>
 				</h1>
 				
 				{/* <!-- //menu --> */}

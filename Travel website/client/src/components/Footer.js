@@ -19,7 +19,7 @@ export default function Footer() {
           
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">
-              Company name
+              RideShare Campus Connect
             </h6>
             <p style={{color:"white"}}>
               Here you can use rows and columns to organize your footer
@@ -129,9 +129,9 @@ export default function Footer() {
          class="text-center p-3"
          style={{backgroundColor: 'rgba(0, 0, 0, 0.2)',marginBottom:"0rem"}}
          >
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/"
-         >MDBootstrap.com</a
+      © 2024 Copyright:
+      <a class="text-white" href="#"
+         >Rideshare campus connect</a
         >
     </div>
   

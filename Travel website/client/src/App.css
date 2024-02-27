@@ -171,6 +171,82 @@
   }
 }
 /*for style ends*/
+
+/* responsive table styling */
+/* ResponsiveTable.module.css */
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+@media only screen and (max-width: 600px) {
+  .table {
+    border: 0;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #ddd;
+  }
+
+  .table td {
+    display: block;
+    text-align: left;
+    border-bottom: 0;
+  }
+
+  .table td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+}
+
+
+/* responsive table style end */
+
+/* booking table style */
+
+.table-container {
+  overflow-x: auto; /* Step 2: Enable horizontal scrolling */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* booking table style */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
