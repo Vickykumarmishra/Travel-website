@@ -66,7 +66,7 @@ Swal.fire({
 
   async function handlebooking(_id){
 
-    await axios.get(`http://localhost:8000/getbooking/${_id}`)
+    await axios.get(`https://bharatvarsh.onrender.com/getbooking/${_id}`)
     .then(response => {
       if(response.ok=true){
        
@@ -97,7 +97,7 @@ Swal.fire({
     console.log('username:',username)
     console.log("driver id:",driverid)
     
-    const url="http://localhost:8000/bookings";
+    const url="https://bharatvarsh.onrender.com/bookings";
 
     fetch(url,{
       method:'POST',

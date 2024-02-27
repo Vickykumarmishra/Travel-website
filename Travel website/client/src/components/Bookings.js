@@ -7,7 +7,7 @@ const Bookings = () => {
 
   async function getBookings() {
     try {
-      const response = await axios.get("http://localhost:8000/getbooked");
+      const response = await axios.get("https://bharatvarsh.onrender.com/getbooked");
       if (response.data) {
         console.log('bookings done:-', response.data);
         setBooking(response.data);
