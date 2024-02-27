@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import Contact from './Contact';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function BookRide() {
   const [allImage, setAllImage] = useState(null);
   const [role, setRole] = useState('');
@@ -65,11 +67,20 @@ Swal.fire({
   }, []);
 
   async function handlebooking(_id){
-
+//bookRide button par click karke current driver ka id bheje hai is function me.
     await axios.get(`https://bharatvarsh.onrender.com/getbooking/${_id}`)
+/*current driver ka id fetch karke usko 'getbooking api me bhej denge and then is id k corresponding data fetch karenge then niche 
+variables ko initialize karenge and current user jisne booking button par click kiya hai uska details localstorage se lenge
+ then dono ka data ek separate collection me bhej denge*/
     .then(response => {
       if(response.ok=true){
        
+        toast("Ride booked successfully",{
+          style: {
+            background: "green",
+            color: "white",
+          },
+        })
        
            drivername=response.data.name;
            driverphone=response.data.phone;
@@ -174,7 +185,7 @@ Swal.fire({
         </div>
       </div>
       
-      
+      <ToastContainer/>
     </div>
     <Footer></Footer>
     </>
