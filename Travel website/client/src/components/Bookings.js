@@ -2,8 +2,49 @@ import React, { useEffect, useState } from 'react';
 import Footer from './Footer';
 import axios from 'axios';
 import Navbar from './Navbar';
+import Swal from 'sweetalert2';
 const Bookings = () => {
   const [booking, setBooking] = useState([]);
+  var searchitem;
+ 
+  
+  function handlesearch(e){
+    e.preventDefault()
+    searchitem=document.getElementById("searchbar").value;
+    if(searchitem===''){
+      
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "write something before searching",
+        
+        iconColor: "#ED7D31",
+        customClass: {
+          popup: 'error-modal', // Add a class for custom styling
+          title: "tit",
+          icon: "iconic",
+          footer:'foot',
+          confirmButton: 'confirm',
+        },
+        
+        
+      });
+  
+    }
+
+    else {
+   const filtereddata= booking.filter((current)=>{
+
+      if(current.username.toLowerCase()===searchitem.toLowerCase()){
+        return current;
+      }
+      
+    })
+    setBooking(filtereddata)
+  
+  }
+
+  }
 
   async function getBookings() {
     try {
@@ -25,7 +66,13 @@ const Bookings = () => {
 
     <>
     <Navbar></Navbar>
-    <h2>Booked Rides will show Here</h2>
+    {/* <h2>Booked Rides will show Here</h2> */}
+    <div class="container" style={{marginTop:'2rem',marginBottom:'1rem'}}>
+    <form class="d-flex" role="search" onSubmit={handlesearch}>
+      <input class="form-control me-2" type="search" id='searchbar'  placeholder="Search by passengerName" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit" >Search</button>
+    </form>
+  </div>
     
     <div className="container table-container"> {/* Step 1: Add table-container class */}
 
