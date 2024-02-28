@@ -169,7 +169,7 @@ variables ko initialize karenge and current user jisne booking button par click 
                   <div className="card-body">
 
                     <img src={imageUrl} style={{height:"10rem",width:'10rem',borderRadius:'100%',border:'0.1rem solid grey'}} className='img-fluid'></img>
-                    <h5 className="card-title">Driver:-{name}</h5>
+                    <h5 className="card-title">Dost:-{name}</h5>
                     <p className="card-text"><b>Id: {_id.slice(0,8)}</b></p>
                     <p className="card-text">Phone: {phone}</p>
                     <p className="card-text">Pickup Point: {pickup}</p>

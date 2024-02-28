@@ -174,7 +174,7 @@ export default function ProvideService() {
         </div>
         {/* {errors.image && touched.image?(<p  style={{color:'red'}}className='form-error'>{errors.image}</p>):null} */}
 
-      <div className='container' type='submit' style={{backgroundColor:"#33cc99",color:'white',marginTop:'0.5rem',marginBottom:"0.5rem"}} onClick={handleClick} ><b>Submit</b></div>
+      <div className='container' type='submit' style={{backgroundColor:"#33cc99",color:'white',marginTop:'1rem',marginBottom:"1rem",padding:"0.5rem"}} onClick={handleClick} ><b>Submit</b></div>
       </form>
       
     <center>

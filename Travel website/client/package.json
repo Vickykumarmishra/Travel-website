@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
+    "@emailjs/browser": "^4.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.1",
+    "emailjs": "^4.0.3",
     "formik": "^2.4.5",
     "jsonwebtoken": "^9.0.2",
     "mdb-ui-kit": "^7.1.0",

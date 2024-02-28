@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='' style={{marginBottom:'0rem'}}>
+    <div style={{marginBottom:'0rem'}}>
       
       <div class="container-fluid my-5">
 
