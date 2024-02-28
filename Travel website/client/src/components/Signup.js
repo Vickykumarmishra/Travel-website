@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { SchemaForm } from '../schema/schemaform';
 import Swal from 'sweetalert2';
 import Footer from './Footer';
+import Navbar2 from './Navbar2';
 export default function Signup() {
 
   const myStyle={
@@ -117,13 +118,15 @@ export default function Signup() {
       };}
   return (
     <>
-<div className='container' >
+    <Navbar2></Navbar2>
+<div className='container' style={{marginTop:"2rem"}} >
 
-<h1 class=" text-center" style={{color:"#05b993"}}>
+{/* <h1 class=" text-center" style={{color:"#05b993"}}>
 					<b>RideShare</b>
-				</h1>
+				</h1> */}
         
-        <p style={{color:"#05b993"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
+        
+        {/* <p style={{color:"#05b993"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p> */}
         
 
 

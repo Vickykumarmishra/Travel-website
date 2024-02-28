@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as yup from "yup";
 import Footer from './Footer';
 import { SchemaForm } from '../schema/schemaform';
+import Navbar2 from './Navbar2';
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -92,11 +93,12 @@ export default function Login() {
   return (
 
     <>
-    <div className='container' >
-    <h1 class=" text-center" style={{color:"#05b993"}}>
+    <Navbar2></Navbar2>
+    <div className='container' style={{marginTop:"2rem"}} >
+    {/* <h1 class=" text-center" style={{color:"#05b993"}}>
 					<b>RideShare</b>
-				</h1>
-        <p style={{color:"#05b993"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p>
+				</h1> */}
+        {/* <p style={{color:"#05b993"}}><b>[After clicking on login or signup button, it may take few seconds sometimes. so please wait after clicking]</b></p> */}
      
 
       <div className='row'>
