@@ -16,14 +16,14 @@ export default function Home() {
     navigate('/About')
   }
   return (
-    <div>
+    <div style={{}}>
      
-      <div class="main-top">
+      <div class="main-top" style={{margin:'0'}}>
 		{/* <!-- header --> */}
 		<header>
 			<div class="container-fluid "  >
 				<h1 class="logo text-center"  style={{color:'white'}}>
-					<b>RideShare Campus Connect</b>
+					<b>DriveDosti</b>
 				</h1>
 				
 				{/* <!-- //menu --> */}

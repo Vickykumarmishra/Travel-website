@@ -157,7 +157,7 @@ variables ko initialize karenge and current user jisne booking button par click 
         
       </div>
       <br></br><br></br><br></br>
-     <b> <h6 style={{color:"red",margin:'1rem'}}> {role} mode</h6></b>
+     <b> <h6 style={{color:"red",margin:'1rem',backgroundColor:'#05b993'}}> {role} mode</h6></b>
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
