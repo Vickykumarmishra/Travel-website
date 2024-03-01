@@ -1,6 +1,20 @@
 import React from 'react'
+import {motion} from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
+  const navigate=useNavigate()
+  function handlelogout(){
+    if(localStorage){
+    localStorage.removeItem("login");
+    localStorage.removeItem("role")
+    localStorage.removeItem("username");
+    localStorage.removeItem("email")
+    localStorage.removeItem("token")
+    }
+    navigate('/Login')
+  }
+
   return (
     <div style={{backgroundColor:'#05b993'}}>
       
@@ -12,12 +26,12 @@ export default function Navbar() {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/About">About us</a>
-        <a class="nav-link active" aria-current="page" href="/ProvideService">Provide Service</a>
-        <a class="nav-link active" aria-current="page" href="/BookRide">Book Your Ride</a>
-        <a class="nav-link active" aria-current="page" href='/Contact'>Contact Us</a>
-        <a class="nav-link active" aria-current="page" href="/Bookings">Bookings</a>
-        <a class="nav-link active" aria-current="page" href="/">Logout</a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/About">About us</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/ProvideService">Provide Service</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/BookRide">Book Your Ride</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href='/Contact'>Contact Us</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/Bookings">Bookings</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="#" onClick={handlelogout}>Logout</motion.a>
       </div>
     </div>
   </div>

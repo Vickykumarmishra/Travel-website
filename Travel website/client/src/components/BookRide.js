@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Contact from './Contact';
 import Footer from './Footer';
@@ -18,15 +19,26 @@ export default function BookRide() {
   const buttonhide = () => {
  
     if(role==='user'){
+
     setIsButtonVisible(false);
     }
   };  
 
 
   useEffect(() => {
-    const storedRole = localStorage.getItem('role');
-    setRole(storedRole);
-  }, []);
+    var x=localStorage.getItem('role');
+     if(x===null){
+      const y='krishna'
+      console.log("jai ho")
+      setRole(y)
+    //const storedRole = localStorage.getItem('role');
+     }
+     else{
+      const storedRole = localStorage.getItem('role');
+      setRole(storedRole);
+     }
+   
+  } , []);
 
   useEffect(() => {
 
@@ -99,6 +111,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       console.error("Error fetching data:", error);
 
     });
+    
     
     var username=localStorage.getItem('username');
     var useremail=localStorage.getItem('email');

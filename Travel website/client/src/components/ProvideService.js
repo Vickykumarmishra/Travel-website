@@ -118,14 +118,16 @@ export default function ProvideService() {
   return (
     <>
     <Navbar></Navbar>
+
+   
     <div>
+    <h1 style={{ marginBottom:"1rem",marginTop:'3rem'}}>Provide Your Service!</h1>
               <div class="main-top">
 	
 	</div>
     <div className="container" style={{marginTop:"2rem"}}>
         
-       <h1 style={{fontFamily:"cursive" ,color:"white"}}><b>Service Provider's Details</b> </h1>
-  <p style={{color:'darkorange'}}>[In below form vehicle owners need to upload their vehicle's images and all other details]</p>
+     
        
 
        <form >

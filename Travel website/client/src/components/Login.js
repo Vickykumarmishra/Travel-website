@@ -6,6 +6,7 @@ import * as yup from "yup";
 import Footer from './Footer';
 import { SchemaForm } from '../schema/schemaform';
 import Navbar2 from './Navbar2';
+//import Navbar from './Navbar';
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -68,6 +69,7 @@ export default function Login() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('username',username)
       localStorage.setItem('email',email)
+      localStorage.setItem('login',true)
       const token = data.token;
       const tokenParts = token.split('.');
       /*token.split('.') splits the JWT string into an array of substrings using a dot (.) as the delimiter.
