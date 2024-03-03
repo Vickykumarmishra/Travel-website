@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {motion} from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,6 +14,16 @@ export default function Navbar() {
     }
     navigate('/Login')
   }
+
+  useEffect(()=>{
+    if(localStorage.getItem('login')){
+     console.log('logout visible')  
+    }
+    else{
+      document.getElementById("logout").style.display = 'none';
+ 
+    }
+  },[])
 
   return (
     <div style={{backgroundColor:'#05b993'}}>
@@ -31,7 +41,7 @@ export default function Navbar() {
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/BookRide">Book Your Ride</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href='/Contact'>Contact Us</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/Bookings">Bookings</motion.a>
-        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="#" onClick={handlelogout}>Logout</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} id='logout' class="nav-link active" aria-current="page" href="#" onClick={handlelogout}>Logout</motion.a>
       </div>
     </div>
   </div>
