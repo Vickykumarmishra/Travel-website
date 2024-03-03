@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik'
@@ -28,6 +28,31 @@ export default function Login() {
         action.resetForm();
         }
         })
+
+  // useEffect(()=>{
+     
+  //   if(localStorage.getItem('login')){
+  //       Swal.fire({
+  //     title: "you must login to access this page",
+  //     showClass: {
+  //       popup: `
+  //         animate__animated
+  //         animate__fadeInUp
+  //         animate__faster
+  //       `
+  //     },
+  //     hideClass: {
+  //       popup: `
+  //         animate__animated
+  //         animate__fadeOutDown
+  //         animate__faster
+  //       `
+  //     }
+  //   });
+  //   }
+
+  // },[])
+
   const handleLogin = async (e) => {
     e.preventDefault();
 

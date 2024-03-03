@@ -6,6 +6,7 @@ export default function Protected(props) {
     const {Component}=props
     const navigate=useNavigate()
 
+    if(!localStorage.getItem('login')){}
     Swal.fire({
       title: "you must login to access this page",
       showClass: {
@@ -23,25 +24,24 @@ export default function Protected(props) {
         `
       }
     });
-    
+   
+
     useEffect(()=>{
 
       if(localStorage.getItem('login')){
         console.log('abra')
      
         let login=localStorage.getItem('login');
-        
-        // if(!login){
-        //   // !false=true=> if login has false this block will execute and redirect to login page since user has not logged
-           
-
-            
-        // }
+       
       }
       else{
         console.log('dabra')
+       
         navigate('/Login')
+
       }
+
+      
 
     
     })
