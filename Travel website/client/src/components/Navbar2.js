@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {motion} from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 export default function Navbar2() {
   const navigate=useNavigate()
   var x="not logged";
@@ -13,6 +14,8 @@ export default function Navbar2() {
     navigate('/Login')
   }
 
+  
+ 
   return (
     <div style={{backgroundColor:'#05b993'}}>
       
@@ -27,7 +30,7 @@ export default function Navbar2() {
       <div class="navbar-nav">
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/About">About us</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/ProvideService">Provide Service</motion.a>
-        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/BookRide">Book Your Ride</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/BookRide" >Book Your Ride</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href='/Contact'>Contact Us</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/Bookings">Bookings</motion.a>
         {/* <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="#" onClick={handlelogout}>Logout</motion.a> */}

@@ -53,6 +53,16 @@ export default function Login() {
 
   // },[])
 
+  function handleProtection(){
+
+    // if(localStorage.getItem('login')){
+    //   console.log('logged')
+    // }
+    // else{
+    // Swal.fire("SweetAlert2 is working!");
+    // }
+  }
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -119,9 +129,9 @@ export default function Login() {
 
   return (
 
-    <>
+    <div  onLoad={handleProtection} >
     <Navbar2></Navbar2>
-    <div className='container' style={{marginTop:"2rem"}} >
+    <div className='container' style={{marginTop:"2rem"}}>
     {/* <h1 class=" text-center" style={{color:"#05b993"}}>
 					<b>RideShare</b>
 				</h1> */}
@@ -182,6 +192,6 @@ Don't have an account? <a href="/Signup" style={{color:"#05b993"}}>SignUp</a>
 
        
     </div> 
-    <Footer></Footer> </>
+    <Footer></Footer> </div>
   );
 }

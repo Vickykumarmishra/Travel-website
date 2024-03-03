@@ -7,7 +7,6 @@ export default function Protected(props) {
     const navigate=useNavigate()
 
  
-    
 
     useEffect(()=>{
 
@@ -20,6 +19,8 @@ export default function Protected(props) {
       else{
         console.log('dabra')
        
+       
+
         navigate('/Login')
 
         
@@ -30,7 +31,7 @@ export default function Protected(props) {
       
 
     
-    })
+    },[])
   return (
     <div>
       {/* app.js m jis v component ko prootected m pass kara rahe hai, vo sab is component se hoke jayega load hote samay and us samy login key
