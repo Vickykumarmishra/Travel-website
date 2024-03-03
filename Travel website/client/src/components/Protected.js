@@ -6,25 +6,8 @@ export default function Protected(props) {
     const {Component}=props
     const navigate=useNavigate()
 
-    if(!localStorage.getItem('login')){}
-    Swal.fire({
-      title: "you must login to access this page",
-      showClass: {
-        popup: `
-          animate__animated
-          animate__fadeInUp
-          animate__faster
-        `
-      },
-      hideClass: {
-        popup: `
-          animate__animated
-          animate__fadeOutDown
-          animate__faster
-        `
-      }
-    });
-   
+ 
+    
 
     useEffect(()=>{
 
@@ -38,6 +21,9 @@ export default function Protected(props) {
         console.log('dabra')
        
         navigate('/Login')
+
+        
+       
 
       }
 
