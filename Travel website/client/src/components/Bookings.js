@@ -125,8 +125,9 @@ const Bookings = () => {
         </tbody>
       </table>
 
-     <center><img id='reset' style={{display:'none',marginTop:"1rem",cursor: 'pointer' }}  src='reset icon.png' onClick={handlereset}></img></center> 
+    
     </div>
+    <center><img id='reset' style={{display:'none',marginTop:"1rem",cursor: 'pointer' }}  src='reset icon.png' onClick={handlereset}></img></center> 
     <Footer></Footer>
      </>
   );
