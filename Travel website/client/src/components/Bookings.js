@@ -3,11 +3,15 @@ import Footer from './Footer';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Swal from 'sweetalert2';
+import { NavLink } from 'react-router-dom';
 const Bookings = () => {
   const [booking, setBooking] = useState([]);
   var searchitem;
  
-  
+  function handlereset(){
+    window.location.reload()
+  }
+
   function handlesearch(e){
     e.preventDefault()
     searchitem=document.getElementById("searchbar").value;
@@ -41,6 +45,8 @@ const Bookings = () => {
       
     })
     setBooking(filtereddata)
+
+    document.getElementById('reset').style.display='block'
   
   }
 
@@ -67,6 +73,16 @@ const Bookings = () => {
     <>
     <Navbar></Navbar>
     {/* <h2>Booked Rides will show Here</h2> */}
+
+    <div className='row'>
+      <div className='col-sm-12 col-md-6 col-lg-6'>
+    
+      </div>
+      <div className='col-sm-12 col-md-6 col-lg-6'>
+
+      </div>
+    </div>
+
     <div class="container" style={{marginTop:'2rem',marginBottom:'1rem'}}>
     <form class="d-flex" role="search" onSubmit={handlesearch}>
       <input class="form-control me-2" type="search" id='searchbar'  placeholder="Search by passengerName" aria-label="Search"/>
@@ -108,6 +124,8 @@ const Bookings = () => {
           }
         </tbody>
       </table>
+
+     <center><img id='reset' style={{display:'none',marginTop:"1rem",cursor: 'pointer' }}  src='reset icon.png' onClick={handlereset}></img></center> 
     </div>
     <Footer></Footer>
      </>
