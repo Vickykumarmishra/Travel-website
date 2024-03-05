@@ -21,7 +21,7 @@ const initialValues={
   }
 export default function ProvideService() {
   var m;
-const [mode,setMode]=useState();
+const [mode,setMode]=useState('');
 
 function handlemode(m){
   setMode(m)
@@ -55,7 +55,7 @@ function handlemode(m){
   
     const url="https://bharatvarsh.onrender.com/post"
    
-     if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined){
+     if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''){
 
       fetch(url,{
         method:'POST',
@@ -71,6 +71,7 @@ function handlemode(m){
         document.getElementById("charge").value=''
         document.getElementById("time").value=''
         document.getElementById("inputGroupFile04").value=''
+        //setMode('')
       })
       .catch((error) => {
         console.error("Error updating data:", error);
