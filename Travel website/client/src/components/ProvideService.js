@@ -180,12 +180,12 @@ function handlemode(m){
 {/* radio buttons */}
 <center>
 <div class="form-check form-check-inline">
-  <input  class="form-check-input" type="radio" name="inlineRadioOption1" id="inlineRadio1" value="Car" onClick={()=>{handlemode('Car')}} />
-  <label class="form-check-label" for="inlineRadio1">Car</label>
+  <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onClick={()=>{handlemode('Car')}} />
+  <label class="form-check-label" for="inlineRadio1">I have Car</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOption2" id="inlineRadio2" value="Bike" onClick={()=>{handlemode('Bike')}}/>
-  <label class="form-check-label" for="inlineRadio2">Bike</label>
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onClick={()=>{handlemode('Bike')}}/>
+  <label class="form-check-label" for="inlineRadio2">I have Bike</label>
 </div></center>
 
 
