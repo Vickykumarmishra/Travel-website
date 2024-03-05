@@ -20,7 +20,12 @@ const initialValues={
 
   }
 export default function ProvideService() {
-  
+  var m;
+const [mode,setMode]=useState();
+
+function handlemode(m){
+  setMode(m)
+}
 
   function handleClick(e){
 
@@ -31,8 +36,9 @@ export default function ProvideService() {
    let pickup=document.getElementById("pickup").value;
    let charge=document.getElementById("charge").value;
    let time=document.getElementById("time").value;
+   let vehicle=mode;
    var imageInput=document.getElementById("inputGroupFile04");
-  
+  console.log('mode:',mode)
    /*imageInput is not an input element; it's the whole input field.
      To get the selected file, you should use imageInput.files[0] directly without .value. */
   var image=imageInput.files[0];
@@ -44,6 +50,8 @@ export default function ProvideService() {
   formData.append('charge',charge);
   formData.append('time',time);
   formData.append('image',image);
+  formData.append('mode',vehicle)
+
   
     const url="https://bharatvarsh.onrender.com/post"
    
@@ -167,6 +175,18 @@ export default function ProvideService() {
 </div>
 
 <br></br>
+
+{/* radio buttons */}
+<center>
+<div class="form-check form-check-inline">
+  <input  class="form-check-input" type="radio" name="inlineRadioOption1" id="inlineRadio1" value="Car" onClick={()=>{handlemode('Car')}} />
+  <label class="form-check-label" for="inlineRadio1">Car</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOption2" id="inlineRadio2" value="Bike" onClick={()=>{handlemode('Bike')}}/>
+  <label class="form-check-label" for="inlineRadio2">Bike</label>
+</div></center>
+
 
 <p style={{float:'left'}}>Upload your profile image</p>
 <div className="input-group" style={{marginBottom:'0.5rem'}}>

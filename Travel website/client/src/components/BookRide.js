@@ -71,7 +71,9 @@ Swal.fire({
           Swal.close()
           
         }
+        console.log(response.data)
         setInfo(response.data);
+        
       })
       .catch(error => {
         console.error("Error fetching data:", error);
@@ -122,7 +124,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     console.log("driver id:",driverid)
     
     const url="https://bharatvarsh.onrender.com/bookings";
-
+    
     fetch(url,{
       method:'POST',
       headers:{
@@ -174,7 +176,8 @@ variables ko initialize karenge and current user jisne booking button par click 
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
-            const { _id, name, phone, pickup, charge, time,imageUrl } = soln;
+            const { _id, name, phone, pickup, charge, time,mode,imageUrl } = soln;
+            //mode==car?console.log('car'):console.log('bike')
             return (
               <div key={_id} className="col">
                 <div className="card h-100">
@@ -188,6 +191,7 @@ variables ko initialize karenge and current user jisne booking button par click 
                     <p className="card-text">Pickup Point: {pickup}</p>
                     <p className="card-text">Amount: {charge}</p>
                     <p className="card-text">Time: {time}</p>
+                    <p className="card-text">Mode: {mode}</p>
                     <button className='btn btn-success' style={{margin:'0.5rem'}} onClick={()=>handlebooking(_id)}>BookRide</button>
                     <button  className={isButtonVisible ? 'btn btn-danger' : 'hidden'} style={{margin:'0.5rem'}} onClick={() => handleDelete(_id)} id="delete" >Delete</button>
                   </div>

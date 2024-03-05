@@ -84,6 +84,7 @@ const Bookings = () => {
     </div>
 
     <div class="container" style={{marginTop:'2rem',marginBottom:'1rem'}}>
+      <h1 style={{ marginBottom:"1rem",marginTop:'3rem'}}>Booking Details</h1>
     <form class="d-flex" role="search" onSubmit={handlesearch}>
       <input class="form-control me-2" type="search" id='searchbar'  placeholder="Search by passengerName" aria-label="Search"/>
       <button class="btn btn-outline-success" type="submit" >Search</button>
