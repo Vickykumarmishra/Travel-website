@@ -189,11 +189,11 @@ variables ko initialize karenge and current user jisne booking button par click 
         <img src={imageUrl} style={{ height: "10rem", width: '10rem', borderRadius: '100%', border: '0.1rem solid grey' }} className='img-fluid'></img>
         <h5 className="card-title" styel={{color:'green'}}>Dost: {name}</h5>
         <p className="card-text"><b>Id: {_id.slice(0,8)}</b></p>
-        <p className="card-text"><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>: {phone}</p>
-        <p className="card-text">Pickup At: {pickup}</p>
-        <p className="card-text">Amount: {charge}₹</p>
-        <p className="card-text">Time: {time}</p>
-        <p className="card-text">Mode: {mode}</p>
+        <p className="card-text"><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>:<b> {phone}</b></p>
+        <p className="card-text"><b>Pickup At: {pickup}</b></p>
+        <p className="card-text"><b>Amount: {charge}₹ </b></p>
+        <p className="card-text"><b>Time: {time}</b></p>
+        <p className="card-text"><b>Mode: {mode}</b></p>
         <button className='btn btn-success' style={{ margin: '0.5rem' }} onClick={() => handlebooking(_id)}>BookRide</button>
         <button className={isButtonVisible ? 'btn btn-danger' : 'hidden'} style={{ margin: '0.5rem' }} onClick={() => handleDelete(_id)} id="delete">Delete</button>
     </div>
