@@ -44,7 +44,7 @@ export default function About() {
 			<div class="col-lg-6 banner-about">
 				<h3 class="title-wthree mb-4">
 					<span class="mb-1">About Us</span>We Are A Travel Agency</h3>
-				<h6>Discover breathtaking destinations, plan your adventures, and unlock the world's beauty with our travel website. Explore our curated guides, travel tips, and hidden gems, all designed to ignite your wanderlust. Start your journey today and make unforgettable memories around the globe. Your adventure awaits!</h6>
+				<h6>"DriveDosti connects college staff and students with spare vehicle seats to those in need, offering affordable transportation solutions. Join us in fostering a community of support and accessibility."</h6>
 				<p class="my-3">Embark on a voyage of discovery with our travel blog. Dive into vibrant cultures, stunning landscapes, and expert travel insights.</p>
 				
 				<div class="button-w3ls mt-xl-5 mt-4" style={{float:'left',margin:'0.2rem'}}>
