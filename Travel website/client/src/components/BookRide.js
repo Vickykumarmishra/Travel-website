@@ -168,10 +168,12 @@ variables ko initialize karenge and current user jisne booking button par click 
     <>
     <Navbar></Navbar>
     <div className='container' onLoad={ buttonhide} >
+
+    <h1 style={{ marginBottom:"1rem",marginTop:'3rem'}}>Book Your Ride</h1>
       <div class="main-top">
         
       </div>
-      <br></br><br></br><br></br>
+      
      <b> <h6 style={{color:"red",margin:'1rem',backgroundColor:'#05b993'}}> {role} mode</h6></b>
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -185,11 +187,11 @@ variables ko initialize karenge and current user jisne booking button par click 
                 <div className="card h-100">
     <div className="card-body">
         <img src={imageUrl} style={{ height: "10rem", width: '10rem', borderRadius: '100%', border: '0.1rem solid grey' }} className='img-fluid'></img>
-        <h5 className="card-title">Dost: {name}</h5>
+        <h5 className="card-title" styel={{color:'green'}}>Dost: {name}</h5>
         <p className="card-text"><b>Id: {_id.slice(0,8)}</b></p>
         <p className="card-text"><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>: {phone}</p>
         <p className="card-text">Pickup At: {pickup}</p>
-        <p className="card-text">Amount: {charge}</p>
+        <p className="card-text">Amount: {charge}₹</p>
         <p className="card-text">Time: {time}</p>
         <p className="card-text">Mode: {mode}</p>
         <button className='btn btn-success' style={{ margin: '0.5rem' }} onClick={() => handlebooking(_id)}>BookRide</button>
