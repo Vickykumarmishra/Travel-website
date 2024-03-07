@@ -53,7 +53,7 @@ function handlemode(m){
   formData.append('mode',vehicle)
 
   
-    const url="https://bharatvarsh.onrender.com/post"
+    const url="https://travel-website-serving.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''){
 
