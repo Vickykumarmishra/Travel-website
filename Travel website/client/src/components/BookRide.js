@@ -16,7 +16,7 @@ export default function BookRide() {
   var driverphone;
   var pickup;
   var pickuptime;
-  var driveremail
+  var email
   const buttonhide = () => {
  
     if(role==='user'){
@@ -101,12 +101,12 @@ variables ko initialize karenge and current user jisne booking button par click 
            driverphone=response.data.phone;
            pickup=response.data.pickup;
            pickuptime=response.data.time;
-           driveremail=response.data.email;
+           email=response.data.email;
            console.log("booked driver name:",drivername)
            console.log("booked driver phone no:", driverphone)
            console.log("pickup point:", pickup)
            console.log("pickup time",pickuptime)
-           
+           console.log("driver email:",email)
        
       }
       
@@ -134,7 +134,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       headers:{
         'Content-Type':'application/json',
       },
-      body:JSON.stringify({username,useremail, driverid,drivername,driveremail,driverphone,pickup,pickuptime})
+      body:JSON.stringify({username,useremail, driverid,drivername,driverphone,pickup,pickuptime})
     })
     .then(() => {
       console.log("Data updated successfully");
