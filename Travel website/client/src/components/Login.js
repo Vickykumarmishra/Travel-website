@@ -132,7 +132,7 @@ export default function Login() {
     <div  onLoad={handleProtection} >
     <Navbar2></Navbar2>
     <div className='container' style={{marginTop:"2rem"}}>
-    <p style={{color:'red'}}><b>IMPORTANT NOTICE</b>:- Since we are using free server and its resources are limited; so you will face a delay of 30-40 seconds in logIn and signIn process.Kindly cooperate us.</p>
+    {/* <p style={{color:'red'}}><b>IMPORTANT NOTICE</b>:- Since we are using free server and its resources are limited; so you will face a delay of 30-40 seconds in logIn and signIn process.Kindly cooperate us.</p> */}
     {/* <h1 class=" text-center" style={{color:"#05b993"}}>
 					<b>RideShare</b>
 				</h1> */}

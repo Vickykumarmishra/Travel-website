@@ -53,6 +53,8 @@ export default function Navbar2() {
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/BookRide" onClick={handlelprotection} >Book Your Ride</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href='/Contact'>Contact Us</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} style={{ cursor: 'pointer' }}   class="nav-link active" aria-current="page" href="/Bookings" onClick={handlelprotection}>Bookings</motion.a>
+        <motion.a whileHover={{textDecoration:'underline'}} style={{ cursor: 'pointer' }}   class="nav-link active" aria-current="page" href="/Login" >LogIn</motion.a>
+        
         {/* <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="#" onClick={handlelogout}>Logout</motion.a> */}
       </div>
     </div>
