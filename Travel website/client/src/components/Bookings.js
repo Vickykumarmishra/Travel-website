@@ -39,7 +39,7 @@ const Bookings = () => {
     else {
    const filtereddata= booking.filter((current)=>{
 
-      if(current.username.toLowerCase()===searchitem.toLowerCase()|| current.driverid.toLowerCase()===searchitem.toLowerCase()||current.drivername.toLowerCase()===searchitem.toLowerCase()){
+      if(current.username.toLowerCase()===searchitem.toLowerCase()|| current.driverid.toLowerCase()===searchitem.toLowerCase()||current.drivername.toLowerCase()===searchitem.toLowerCase()||current.pickup.toLowerCase()===searchitem.toLowerCase()){
         return current;
       }
       
