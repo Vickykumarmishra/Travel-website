@@ -184,16 +184,16 @@ variables ko initialize karenge and current user jisne booking button par click 
               <div key={_id} className="col">
                 
                 
-                <div className="card h-100">
+                <div className="card h-100" style={{ background: 'linear-gradient(135deg, #05b993, #0000)'}}>
     <div className="card-body" style={{border:'0.05rem solid green',borderRadius:'0.3rem'}}>
         <img src={imageUrl} style={{ height: "10rem", width: '10rem', borderRadius: '100%', border: '0.1rem solid grey' }} className='img-fluid'></img>
         <h5 className="card-title" styel={{color:'green'}}>Dost: {name}</h5>
-        <p className="card-text"><b>Id: {_id.slice(0,8)}</b></p>
-        <p className="card-text"><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>:<b> {phone}</b></p>
-        <p className="card-text"><b>Pickup At: {pickup}</b></p>
-        <p className="card-text"><b>Amount: {charge}₹ </b></p>
-        <p className="card-text"><b>Time: {time}</b></p>
-        <p className="card-text"><b>Mode: {mode}</b></p>
+        <p className="card-text" style={{color:'green'}}><b>Id: {_id.slice(0,8)}</b></p>
+        <p className="card-text" style={{color:'green'}}><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>:<b> {phone}</b></p>
+        <p className="card-text" style={{color:'green'}}><b>Pickup At: {pickup}</b></p>
+        <p className="card-text" style={{color:'green'}}><b>Amount: {charge}₹ </b></p>
+        <p className="card-text" style={{color:'green'}}><b>Time: {time}</b></p>
+        <p className="card-text" style={{color:'green'}}><b>Mode: {mode}</b></p>
         <button className='btn btn-success' style={{ margin: '0.5rem' }} onClick={() => handlebooking(_id)}>BookRide</button>
         <button className={isButtonVisible ? 'btn btn-danger' : 'hidden'} style={{ margin: '0.5rem' }} onClick={() => handleDelete(_id)} id="delete">Delete</button>
     </div>

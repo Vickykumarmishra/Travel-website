@@ -59,7 +59,7 @@ const storage = multer.diskStorage({
       
        let data = new Product(req.body);
        
-        console.log("data" + data)//yaha image url khali hoga
+      console.log("data" + data)//yaha image url khali hoga
       data.imageUrl = result.secure_url; 
       console.log("data" + data)//yaha ham imageurl add kar diye
       let savedData = await data.save();
