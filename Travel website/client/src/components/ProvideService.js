@@ -40,6 +40,7 @@ function handledate() {
    let charge=document.getElementById("charge").value;
    let time=document.getElementById("time").value;
    let date=document.getElementById("date").value;
+   let email=document.getElementById("email").value;
    let vehicle=mode;
    var imageInput=document.getElementById("inputGroupFile04");
   console.log('mode:',mode)
@@ -56,10 +57,11 @@ function handledate() {
   formData.append('image',image);
   formData.append('mode',vehicle)
   formData.append('date',date)
+  formData.append('email',email);
   
     const url="https://travel-website-serving.onrender.com/post"
    
-     if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''&&date!==''){
+     if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''&&date!==''&&email!==''){
 
       fetch(url,{
         method:'POST',
@@ -74,6 +76,7 @@ function handledate() {
         document.getElementById("pickup").value=''
         document.getElementById("charge").value=''
         document.getElementById("time").value=''
+        document.getElementById("email").value=''
         document.getElementById("inputGroupFile04").value=''
         //setMode('')
       })
@@ -151,6 +154,12 @@ function handledate() {
 
 
         {errors.name && touched.name?(<p  style={{color:'red'}}className='form-error'>{errors.name}</p>):null}
+
+        <div className="form-floating mb-3">
+  <input type="text" className="form-control" id="email" name='email' value={values.email} onChange={handleChange} onBlur={handleBlur}/>
+  <label for="floatingInput">Email:</label>
+</div>
+{errors.email && touched.email?(<p  style={{color:'red'}}className='form-error'>{errors.email}</p>):null}
 
 <div className="form-floating mb-3">
   <input type="text" className="form-control" id="phone" name='phone' value={values.phone} onChange={handleChange} onBlur={handleBlur}/>

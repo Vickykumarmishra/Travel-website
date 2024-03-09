@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const RideSchema=new mongoose.Schema({
 
     name:String,
+    email:String,
     phone:Number,
     pickup:String,
     charge:Number,
