@@ -101,7 +101,7 @@ variables ko initialize karenge and current user jisne booking button par click 
            driverphone=response.data.phone;
            pickup=response.data.pickup;
            pickuptime=response.data.time;
-           driveremail=response.data.email;
+           driveremail=response.data.driveremail;
            console.log("booked driver name:",drivername)
            console.log("booked driver phone no:", driverphone)
            console.log("pickup point:", pickup)
@@ -143,19 +143,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       console.error("Error updating data:", error);
     });
 
-    fetch("https://travel-website-serving.onrender.com/mail",{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify({ driveremail})
-    })
-    .then(() => {
-      console.log("Data updated successfully");
-    })
-    .catch((error) => {
-      console.error("Error updating data:", error);
-    });
+   
 
   }
 
