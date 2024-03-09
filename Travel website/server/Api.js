@@ -171,7 +171,7 @@ app.post('/login', async (req, res) => {
 //Sends a JSON response containing the generated token. This response can be consumed by the client, typically for authentication purposes
 });
 
-app.post('/mail',(req,res)=>{
+app.post('/mail',async (req,res)=>{
 
   let email=req.body.email
 
@@ -183,7 +183,7 @@ app.post('/mail',(req,res)=>{
     text:"Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details"
   }
 
-  transporter.sendMail(info,(err,result)=>{
+  await transporter.sendMail(info,(err,result)=>{
 
     if(err){
           console.log(err)
