@@ -116,7 +116,7 @@ export default function Login() {
       localStorage.setItem('role', role);
 
       navigate('/About');
-      Swal.fire('Logged In', 'Welcome to RideReady', 'success');
+      Swal.fire('Logged In', 'Welcome to DriveDosti', 'success');
     } else {
       Swal.fire({
         icon: 'error',

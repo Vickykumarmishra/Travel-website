@@ -2,29 +2,32 @@ import React, { useEffect, useState } from 'react'
 import Swal from "sweetalert2";
 import  axios from "axios";
 import { useRef } from 'react';
-import { useAuth0 } from "@auth0/auth0-react";
 import { useFormik } from 'formik'
-
 import * as yup from "yup";
 import { SchemaProvide } from '../schema/Index';
 import Footer from './Footer';
 import Navbar from './Navbar';
-const initialValues={
 
+const initialValues={
   name:"",
   phone:"",
   pickup:"",
   charge:"",
   time:"",
   image:"",
-
   }
+
 export default function ProvideService() {
-  var m;
+var m;
 const [mode,setMode]=useState('');
 
 function handlemode(m){
   setMode(m)
+}
+
+
+function handledate() {
+  
 }
 
   function handleClick(e){
@@ -36,6 +39,7 @@ function handlemode(m){
    let pickup=document.getElementById("pickup").value;
    let charge=document.getElementById("charge").value;
    let time=document.getElementById("time").value;
+   let date=document.getElementById("date").value;
    let vehicle=mode;
    var imageInput=document.getElementById("inputGroupFile04");
   console.log('mode:',mode)
@@ -51,11 +55,11 @@ function handlemode(m){
   formData.append('time',time);
   formData.append('image',image);
   formData.append('mode',vehicle)
-
+  formData.append('date',date)
   
     const url="https://travel-website-serving.onrender.com/post"
    
-     if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''){
+     if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''&&date!==''){
 
       fetch(url,{
         method:'POST',
@@ -177,16 +181,32 @@ function handlemode(m){
 
 <br></br>
 
+
+
 {/* radio buttons */}
-<center>
-<div class="form-check form-check-inline">
+<div className='row' style={{marginBottom:'1rem'}}>
+
+  <div className='col-sm-12 col-lg-6 col-md-6' >
+    <label>Date:-</label>
+  <input type='date' id='date'></input>
+  </div>
+
+  <div className='col-sm-12 col-lg-6 col-md-6' >
+
+  <div class="form-check form-check-inline">
   <input  class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onClick={()=>{handlemode('Car')}} />
   <label class="form-check-label" for="inlineRadio1">I have Car</label>
 </div>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onClick={()=>{handlemode('Bike')}}/>
   <label class="form-check-label" for="inlineRadio2">I have Bike</label>
-</div></center>
+</div>
+
+  </div>
+</div>
+
+
+
 
 
 <p style={{float:'left'}}>Upload your profile image</p>

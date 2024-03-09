@@ -9,6 +9,7 @@ const RideSchema=new mongoose.Schema({
     time:String,
     mode:String,
     imageUrl:String,
+    date:String,
 
 },
 {
