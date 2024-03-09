@@ -181,7 +181,7 @@ variables ko initialize karenge and current user jisne booking button par click 
             const { _id, name, phone, pickup, charge, time,mode,imageUrl } = soln;
             //mode==car?console.log('car'):console.log('bike')
             return (
-              <div key={_id} className="col">
+              <div key={_id} className="col-md-6 col-lg-4">
                 
                 
                 <div className="card h-100" style={{ background: 'linear-gradient(135deg, #05b993, #0000)'}}>
