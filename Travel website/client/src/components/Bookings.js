@@ -39,7 +39,7 @@ const Bookings = () => {
     else {
    const filtereddata= booking.filter((current)=>{
 
-      if(current.username.toLowerCase()===searchitem.toLowerCase()){
+      if(current.username.toLowerCase()===searchitem.toLowerCase()|| current.driverid.toLowerCase()===searchitem.toLowerCase()||current.drivername.toLowerCase()===searchitem.toLowerCase()){
         return current;
       }
       
@@ -86,9 +86,11 @@ const Bookings = () => {
     <div class="container" style={{marginTop:'2rem',marginBottom:'1rem'}}>
       <h1 style={{ marginBottom:"1rem",marginTop:'3rem'}}>Booking Details</h1>
     <form class="d-flex" role="search" onSubmit={handlesearch}>
-      <input class="form-control me-2" type="search" id='searchbar'  placeholder="Search by passengerName" aria-label="Search"/>
+      <input class="form-control me-2" type="search" id='searchbar'  placeholder="Search here" aria-label="Search"/>
       <button class="btn btn-outline-success" type="submit" >Search</button>
     </form>
+
+
   </div>
     
     <div className="container table-container"> {/* Step 1: Add table-container class */}
