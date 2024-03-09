@@ -144,6 +144,19 @@ variables ko initialize karenge and current user jisne booking button par click 
     });
 
    
+    fetch("https://travel-website-serving.onrender.com/mail",{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({email})
+    })
+    .then(() => {
+      console.log("Email sent successfully");
+    })
+    .catch((error) => {
+      console.error("Error updating data:", error);
+    });
 
   }
 

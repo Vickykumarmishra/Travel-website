@@ -173,14 +173,14 @@ app.post('/login', async (req, res) => {
 
 app.post('/mail',(req,res)=>{
 
-  let email=req.body.driveremail
+  let email=req.body.email
 
   const info={
 
     from:"golukumar9919mish@gmail.com",
     to:email,
     subject:"Your Ride Booked by Somenone",
-    text:"You are hacked .your account is debited by 5000 rupees"
+    text:"Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details"
   }
 
   transporter.sendMail(info,(err,result)=>{
