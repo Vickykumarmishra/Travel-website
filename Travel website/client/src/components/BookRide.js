@@ -117,6 +117,7 @@ variables ko initialize karenge and current user jisne booking button par click 
 
     });
     
+
     
     var username=localStorage.getItem('username');
     var useremail=localStorage.getItem('email');
@@ -134,6 +135,20 @@ variables ko initialize karenge and current user jisne booking button par click 
         'Content-Type':'application/json',
       },
       body:JSON.stringify({username,useremail, driverid,drivername,driveremail,driverphone,pickup,pickuptime})
+    })
+    .then(() => {
+      console.log("Data updated successfully");
+    })
+    .catch((error) => {
+      console.error("Error updating data:", error);
+    });
+
+    fetch("https://travel-website-serving.onrender.com/mail",{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({ driveremail})
     })
     .then(() => {
       console.log("Data updated successfully");

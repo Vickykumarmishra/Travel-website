@@ -3,8 +3,19 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const bodyParser = require('body-parser');
+var nodemailer=require('nodemailer');
+require('dotenv').config();
 require("./Connection");
 require('dotenv').config();
+
+const transporter = nodemailer.createTransport({
+  service:"gmail",
+  auth: {
+    user: "golukumar9919mish@gmail.com",
+    pass: process.env.MY_PASSW,
+  },
+});
+
 
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('cloudinary').v2;
@@ -159,6 +170,29 @@ app.post('/login', async (req, res) => {
   res.json({ token });
 //Sends a JSON response containing the generated token. This response can be consumed by the client, typically for authentication purposes
 });
+
+app.post('/mail',(req,res)=>{
+
+  let email=req.body.driveremail
+
+  const info={
+
+    from:"golukumar9919mish@gmail.com",
+    to:email,
+    subject:"Your Ride Booked by Somenone",
+    text:"You are hacked .your account is debited by 5000 rupees"
+  }
+  
+  transporter.sendMail(info,(err,result)=>{
+
+    if(err){
+          console.log(err)
+    }
+    else{
+        console.log("mail sent successfully",info)
+    }
+  })
+})
 
 app.listen(8000, () => {
   console.log('Server is running on port 8000');
