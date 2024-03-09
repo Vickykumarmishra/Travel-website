@@ -127,7 +127,7 @@ app.post('/signup', async (req, res) => {
 
 app.post('/bookings', async (req,res)=>{
  const {username,useremail,driverid,drivername,driverphone,pickup,pickuptime}=req.body
- const newbooking= new bookings({username,useremail, driverid,drivername,driverphone,pickup,pickuptime})
+ const newbooking= new bookings({username,useremail, driverid,drivername,driveremail,driverphone,pickup,pickuptime})
 
  await newbooking.save()
 })
