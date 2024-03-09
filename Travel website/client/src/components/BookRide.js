@@ -101,7 +101,7 @@ variables ko initialize karenge and current user jisne booking button par click 
            driverphone=response.data.phone;
            pickup=response.data.pickup;
            pickuptime=response.data.time;
-           driveremail=response.data.driveremail;
+           driveremail=response.data.email;
            console.log("booked driver name:",drivername)
            console.log("booked driver phone no:", driverphone)
            console.log("pickup point:", pickup)
