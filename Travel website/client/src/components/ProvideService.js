@@ -50,6 +50,7 @@ function handledate() {
   
   const formData = new FormData();
   formData.append('name',name);
+  formData.append('email',email);
   formData.append('phone',phone);
   formData.append('pickup',pickup);
   formData.append('charge',charge);
@@ -57,7 +58,7 @@ function handledate() {
   formData.append('image',image);
   formData.append('mode',vehicle)
   formData.append('date',date)
-  formData.append('email',email);
+ 
   
     const url="https://travel-website-serving.onrender.com/post"
    
