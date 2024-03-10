@@ -112,7 +112,7 @@ export default function Signup() {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'User Already exists!',
-                footer: '<p style="color:red"><b>check username and password carefully</b></p>'
+                footer: '<p style="color:red"><b>check username and email carefully</b></p>'
               })
         }
       };}
