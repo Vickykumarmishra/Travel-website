@@ -29,38 +29,10 @@ export default function Login() {
         }
         })
 
-  // useEffect(()=>{
-     
-  //   if(localStorage.getItem('login')){
-  //       Swal.fire({
-  //     title: "you must login to access this page",
-  //     showClass: {
-  //       popup: `
-  //         animate__animated
-  //         animate__fadeInUp
-  //         animate__faster
-  //       `
-  //     },
-  //     hideClass: {
-  //       popup: `
-  //         animate__animated
-  //         animate__fadeOutDown
-  //         animate__faster
-  //       `
-  //     }
-  //   });
-  //   }
-
-  // },[])
+  
 
   function handleProtection(){
 
-    // if(localStorage.getItem('login')){
-    //   console.log('logged')
-    // }
-    // else{
-    // Swal.fire("SweetAlert2 is working!");
-    // }
   }
 
   const handleLogin = async (e) => {
