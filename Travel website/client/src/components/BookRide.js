@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export default function BookRide() {
+  
   const [allImage, setAllImage] = useState(null);
   const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
@@ -90,13 +91,6 @@ variables ko initialize karenge and current user jisne booking button par click 
     .then(response => {
       if(response.ok=true){
        
-        toast("Ride booked successfully",{
-          style: {
-            background: "green",
-            color: "white",
-          },
-        })
-       
            drivername=response.data.name;
            driverphone=response.data.phone;
            pickup=response.data.pickup;
@@ -107,6 +101,24 @@ variables ko initialize karenge and current user jisne booking button par click 
            console.log("pickup point:", pickup)
            console.log("pickup time",pickuptime)
            console.log("driver email:",email)
+          var pass_name= localStorage.getItem('username')
+          if(drivername!==pass_name){
+            toast("Ride booked successfully",{
+              style: {
+                background: "green",
+                color: "white",
+              },
+            })
+
+          }
+          else{
+            toast("canot be booked",{
+              style: {
+                background: "red",
+                color: "white",
+              },
+            })
+          }
        
       }
       
@@ -128,7 +140,8 @@ variables ko initialize karenge and current user jisne booking button par click 
     console.log("driver id:",driverid)
     
     const url="https://travel-website-serving.onrender.com/bookings";
-    
+    var pass_name= localStorage.getItem('username')
+    if(pass_name!==drivername){
     fetch(url,{
       method:'POST',
       headers:{
@@ -142,7 +155,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     .catch((error) => {
       console.error("Error updating data:", error);
     });
-
+  }
    
     fetch("https://travel-website-serving.onrender.com/mail",{
       method:'POST',
@@ -197,7 +210,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
-            const { _id, name, phone, pickup, charge, time,mode,imageUrl } = soln;
+            const { _id, name, phone, pickup, charge, time,mode,imageUrl,date } = soln;
             //mode==car?console.log('car'):console.log('bike')
             return (
               <div key={_id} className="col-md-6 col-lg-4">
@@ -208,7 +221,8 @@ variables ko initialize karenge and current user jisne booking button par click 
         <img src={imageUrl} style={{ height: "10rem", width: '10rem', borderRadius: '100%', border: '0.1rem solid grey' }} className='img-fluid'></img>
         <h5 className="card-title" styel={{color:'green'}}>Dost: {name}</h5>
         <p className="card-text" style={{color:'green'}}><b>Id: {_id.slice(0,8)}</b></p>
-        <p className="card-text" style={{color:'green'}}><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>:<b> {phone}</b></p>
+        <p className="card-text" style={{color:'green',display:"none"}}><img src='phone-call.png' className='img-fluid' style={{height:'1.5rem'}}></img>:<b> {phone}</b></p>
+        <p className="card-text" style={{color:'green'}}><img src='date.png' className='img-fluid' style={{height:'1.5rem'}}></img>:<b> {date}</b></p>
         <p className="card-text" style={{color:'green'}}><b>Pickup At: {pickup}</b></p>
         <p className="card-text" style={{color:'green'}}><b>Amount: {charge}₹ </b></p>
         <p className="card-text" style={{color:'green'}}><b>Time: {time}</b></p>
