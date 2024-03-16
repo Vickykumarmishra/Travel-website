@@ -7,7 +7,8 @@ import * as yup from "yup";
 import { SchemaProvide } from '../schema/Index';
 import Footer from './Footer';
 import Navbar from './Navbar';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const initialValues={
   name:"",
   phone:"",
@@ -25,10 +26,6 @@ function handlemode(m){
   setMode(m)
 }
 
-
-function handledate() {
-  
-}
 
   function handleClick(e){
 
@@ -59,11 +56,20 @@ function handledate() {
   formData.append('mode',vehicle)
   formData.append('date',date)
  
-  
+  var currentUser=localStorage.getItem("username")
     const url="https://travel-website-serving.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''&&date!==''&&email!==''){
 
+      if(name!==currentUser){
+        toast("your name not matching",{
+          style: {
+            background: "red",
+            color: "white",
+          },
+        })
+      }
+      else{
       fetch(url,{
         method:'POST',
        
@@ -92,7 +98,7 @@ function handledate() {
       )
 
         
-
+      }
        
     }
 
@@ -245,7 +251,7 @@ function handledate() {
           </div>     
        
     </div>
-
+    <ToastContainer/>
    <Footer></Footer>
 	
       </div>
