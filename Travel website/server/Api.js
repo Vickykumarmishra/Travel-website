@@ -150,8 +150,8 @@ app.post('/bookings', async (req,res)=>{
 
 app.post('/login', async (req, res) => {
   const { username, email, password } = req.body;
-  const user = await sign.findOne({ username:username });
-  const emails=await sign.findOne({email:email})
+  const user = await sign.findOne({ username: username, email: email });
+
  //findone will return the required data object or null. null is falsy whereas object is truthy.
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed' });
