@@ -69,13 +69,29 @@ export default function Navbar() {
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/BookRide" onClick={handlelprotection}>Book Your Ride</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href='/Contact'>Contact Us</motion.a>
         <motion.a whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" href="/Bookings" onClick={handlelprotection}>Bookings</motion.a>
-        <motion.a whileHover={{textDecoration:'underline'}} id='logout' class="nav-link active" aria-current="page" href="#" onClick={handlelogout}>LogOut</motion.a>
+       
         <motion.a whileHover={{textDecoration:'underline'}} id='login' class="nav-link active" aria-current="page" href="/Login" >LogIn</motion.a>
-
+        <motion.a style={{marginRight:"0.5rem",cursor:'pointer'}} whileHover={{textDecoration:'underline'}} class="nav-link active" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Profile</motion.a>
       </div>
     </div>
+   
   </div>
+  
 </nav>
+
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header" style={{backgroundColor:'#05b993'}}>
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" >User Profile</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <img src="drivedosti profile.png" className='img-fluid' style={{height:'5rem'}}></img><br></br><br></br>
+  <b> Username:-{localStorage.getItem("username")} </b>  <br></br>
+      <p><b>Email Id:- {localStorage.getItem("email")}</b></p>
+    <motion.button whileHover={{textDecoration:'underline'}} id='logout' className="btn btn-success" aria-current="page" href="#" onClick={handlelogout}>LogOut</motion.button>
+  </div>
+</div>
     </div>
   )
 }

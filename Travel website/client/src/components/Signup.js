@@ -111,7 +111,7 @@ export default function Signup() {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'User Already exists!',
+                text: 'This Email already used! try with different email',
                 footer: '<p style="color:red"><b>check username and email carefully</b></p>'
               })
         }
