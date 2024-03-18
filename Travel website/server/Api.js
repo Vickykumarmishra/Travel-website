@@ -180,7 +180,7 @@ app.post('/login', async (req, res) => {
 app.post('/mail',async (req,res)=>{
 
   let email=req.body.email
-
+  let pass_email=req.body.useremail
   
 
   const info={
@@ -188,7 +188,7 @@ app.post('/mail',async (req,res)=>{
     from:"golukumar9919mish@gmail.com",
     to:email,
     subject:"Ride Booked successfully",
-    text:"Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details"
+    text:`Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details.passenger Email:-${pass_email}`
   }
 
    transporter.sendMail(info,(err,result)=>{
