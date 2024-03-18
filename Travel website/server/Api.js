@@ -165,7 +165,7 @@ app.post('/login', async (req, res) => {
   }
 
   let token;
-  if (username === "Vicky1999"&&email==="mishravicky0141@gmail.com"&&password==="123456") {
+  if (username === "Vicky mishra"&&email==="mishravicky0141@gmail.com"&&password==="123456") {
     //generating token for admin role
     token = jwt.sign({ userId: user._id, role: 'Admin' }, 'your_secret_key', { expiresIn: '1h' });
   } else {
