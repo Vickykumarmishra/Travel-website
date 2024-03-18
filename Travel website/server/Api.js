@@ -188,11 +188,10 @@ app.post('/mail',async (req,res)=>{
     from:"golukumar9919mish@gmail.com",
     to:email,
     subject:"Ride Booked successfully",
-    text:`Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details.\n\n
-            passenger Email:-${pass_email}`
+    text:"Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details"
   }
 
-  await transporter.sendMail(info,(err,result)=>{
+   transporter.sendMail(info,(err,result)=>{
 
     if(err){
           console.log(err)
