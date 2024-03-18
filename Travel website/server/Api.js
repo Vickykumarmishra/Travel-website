@@ -181,16 +181,20 @@ app.post('/mail',async (req,res)=>{
 
   let email=req.body.email
   let pass_email=req.body.pass_email
-  
+  let pass_name=req.body.passs_name
+  let pickuppoint=req.body.pickup
  console.log("pass email",pass_email)
   const info={
 
     from:"golukumar9919mish@gmail.com",
     to:email,
     subject:"Ride Booked successfully",
-    text:"Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details.",
+    text:"Congratulations your vehicle has been booked successfully.",
     html: `<h6 style="color:green">Passenger details:-</h6><br></br>
-        <p>Passenger Email: ${pass_email}</p>`
+        <img src="1.jpg" class="img-fluid" >
+        <p>Passenger name:-${pass_name}</p>
+        <p>Passenger Email:- ${pass_email}</p>
+        <p>Pickup point:-${pickuppoint}</p>`
   }
 
    transporter.sendMail(info,(err,result)=>{
