@@ -4,10 +4,12 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import Swal from 'sweetalert2';
 import { NavLink } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Bookings = () => {
   const [booking, setBooking] = useState([]);
   const [filteredBooking, setFilteredBooking] = useState([]); // Add filteredBooking state
+  const [toaster,setToaster]=useState(true)
   var searchitem;
 
   function handlereset() {
@@ -18,19 +20,19 @@ const Bookings = () => {
     e.preventDefault();
     searchitem = document.getElementById('searchbar').value;
     if (searchitem === '') {
-      // Swal.fire({
-      //   icon: 'error',
-      //   title: 'Oops...',
-      //   text: 'Write something before searching',
-      //   iconColor: '#ED7D31',
-      //   customClass: {
-      //     popup: 'error-modal', // Add a class for custom styling
-      //     title: 'tit',
-      //     icon: 'iconic',
-      //     footer: 'foot',
-      //     confirmButton: 'confirm',
-      //   },
-      // });
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Write something before searching',
+        iconColor: '#ED7D31',
+        customClass: {
+          popup: 'error-modal', // Add a class for custom styling
+          title: 'tit',
+          icon: 'iconic',
+          footer: 'foot',
+          confirmButton: 'confirm',
+        },
+      });
     } else {
       const filtereddata = booking.filter((current) => {
         // Filter based on multiple fields
@@ -42,12 +44,19 @@ const Bookings = () => {
           //current.pickuptime.toLowerCase().includes(searchitem.toLowerCase())||
           //current.useremail.toLowerCase().includes(searchitem.toLowerCase())
         ) {
+         
           return current;
         }
         
+        
       });
       setFilteredBooking(filtereddata); // Update filteredBooking state
+
+     
       document.getElementById('reset').style.display = 'block';
+      
+     
+
     }
   }
 
@@ -68,13 +77,19 @@ const Bookings = () => {
     getBookings();
   }, []);
 
+  useEffect(()=>{
+   if(filteredBooking.length===0){
+   console.log("lengthing",filteredBooking.length)
+   }
+  },[filteredBooking])
+
   return (
     <>
       <Navbar />
       <div className='container' style={{ marginTop: '2rem', marginBottom: '1rem' }}>
         <h1 style={{ marginBottom: '1rem', marginTop: '3rem' }}>Booking Details</h1>
         <form class='d-flex' role='search' onSubmit={handlesearch}>
-          <input class='form-control me-2' type='search' id='searchbar' placeholder='Search By:-Name/pickup point' aria-label='Search' />
+          <input class='form-control me-2' type='search' id='searchbar' placeholder='Search By:-Names/pickup point only' aria-label='Search' />
           <button class='btn btn-outline-success' type='submit'>
             Search
           </button>
@@ -112,9 +127,13 @@ const Bookings = () => {
           </tbody>
         </table>
       </div>
+
       <center>
+
+        <h1 id="not found" style={{display:'none',color:"red",marginTop:'2rem'}}>Oops Not Found</h1>
         <img id='reset' style={{ display: 'none', marginTop: '1rem', cursor: 'pointer' }} src='reset icon.png' onClick={handlereset} alt='Reset Icon' />
       </center>
+      
       <Footer />
     </>
   );
