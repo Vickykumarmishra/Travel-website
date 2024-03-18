@@ -151,7 +151,8 @@ app.post('/bookings', async (req,res)=>{
 app.post('/login', async (req, res) => {
   const { username, email, password } = req.body;
   const user = await sign.findOne({ username: username, email: email });
-
+//This query will retrieve a document from the sign collection where both the username and email fields match the specified values simultaneously.
+// If such a document exists, it will be stored in the user variable.
  //findone will return the required data object or null. null is falsy whereas object is truthy.
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed' });
