@@ -180,7 +180,7 @@ app.post('/login', async (req, res) => {
 app.post('/mail',async (req,res)=>{
 
   let email=req.body.email
-  let pass_email=req.body.useremail
+  let pass_email=req.body.pass_email
   
 
   const info={

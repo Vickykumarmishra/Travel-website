@@ -156,13 +156,13 @@ variables ko initialize karenge and current user jisne booking button par click 
       console.error("Error updating data:", error);
     });
   }
-   
+   const pass_email=localStorage.getItem("email")
    await fetch("https://travel-website-serving.onrender.com/mail",{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
       },
-      body:JSON.stringify({email,useremail,pickuptime,pickup})
+      body:JSON.stringify({email,pass_email,pickuptime,pickup})
     })
     .then(() => {
       console.log("Email sent successfully");
