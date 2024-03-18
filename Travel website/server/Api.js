@@ -192,11 +192,11 @@ app.post('/mail',async (req,res)=>{
     text:"Congratulations your vehicle has been booked successfully.",
     html: `<h1>Congratulations Your Ride booked by${pass_name}</h1>
     <h4 style="color:green">Passenger details:-</h4><br></br>
-        <img src="1.jpg" class="img-fluid" >
+        <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
         <p>Passenger name:-${pass_name}</p>
         <p>Passenger Email:- ${pass_email}</p>
         <p>Pickup point:-${pickuppoint}</p>`
-        
+
   }
 
    transporter.sendMail(info,(err,result)=>{
