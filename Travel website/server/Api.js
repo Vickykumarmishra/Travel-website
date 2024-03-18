@@ -182,7 +182,7 @@ app.post('/mail',async (req,res)=>{
   let email=req.body.email
   let pass_email=req.body.pass_email
   
-
+ console.log("pass email",pass_email)
   const info={
 
     from:"golukumar9919mish@gmail.com",
