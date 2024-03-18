@@ -44,6 +44,7 @@ const Bookings = () => {
         ) {
           return current;
         }
+        
       });
       setFilteredBooking(filtereddata); // Update filteredBooking state
       document.getElementById('reset').style.display = 'block';
@@ -72,8 +73,8 @@ const Bookings = () => {
       <Navbar />
       <div className='container' style={{ marginTop: '2rem', marginBottom: '1rem' }}>
         <h1 style={{ marginBottom: '1rem', marginTop: '3rem' }}>Booking Details</h1>
-        <form class='d-flex' role='search' onChange={handlesearch}>
-          <input class='form-control me-2' type='search' id='searchbar' placeholder='Search:-Name/pickup point' aria-label='Search' />
+        <form class='d-flex' role='search' onSubmit={handlesearch}>
+          <input class='form-control me-2' type='search' id='searchbar' placeholder='Search By:-Name/pickup point' aria-label='Search' />
           <button class='btn btn-outline-success' type='submit'>
             Search
           </button>
