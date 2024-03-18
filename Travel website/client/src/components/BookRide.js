@@ -157,12 +157,12 @@ variables ko initialize karenge and current user jisne booking button par click 
     });
   }
    
-    fetch("https://travel-website-serving.onrender.com/mail",{
+   await fetch("https://travel-website-serving.onrender.com/mail",{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
       },
-      body:JSON.stringify({email})
+      body:JSON.stringify({email,useremail,pickuptime,pickup})
     })
     .then(() => {
       console.log("Email sent successfully");

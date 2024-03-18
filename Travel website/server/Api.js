@@ -180,13 +180,16 @@ app.post('/login', async (req, res) => {
 app.post('/mail',async (req,res)=>{
 
   let email=req.body.email
+  let pass_email=req.body.useremail
+  let 
 
   const info={
 
     from:"golukumar9919mish@gmail.com",
     to:email,
-    subject:"Your Ride Booked by Somenone",
-    text:"Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details"
+    subject:"Ride Booked successfully",
+    text:`Congratulations your vehicle has been booked successfully. please visit booking page and search by your driverId to see the details.\n\n
+            passenger Email:-${pass_email}`
   }
 
   await transporter.sendMail(info,(err,result)=>{
