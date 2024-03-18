@@ -156,10 +156,7 @@ app.post('/login', async (req, res) => {
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed' });
   }
-  if(!emails){
-    return res.status(401).json({ message: 'Authentication failed' });
-  }
-
+ 
   const isPasswordValid = await bcryptjs.compare(password, user.password);
 //true or false will be returned in above variable.
   if (!isPasswordValid) { //!true=false
