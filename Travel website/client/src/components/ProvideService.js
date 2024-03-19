@@ -57,12 +57,13 @@ function handlemode(m){
   formData.append('date',date)
  
   var currentUser=localStorage.getItem("username")
+  var currentUserEmail=localStorage.getItem("email")
     const url="https://travel-website-serving.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''&&date!==''&&email!==''){
 
-      if(name!==currentUser){
-        toast("your name not matching",{
+      if(name!==currentUser||email!==currentUserEmail){
+        toast("your name or email not matching",{
           style: {
             background: "red",
             color: "white",

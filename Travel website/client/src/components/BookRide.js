@@ -102,7 +102,8 @@ variables ko initialize karenge and current user jisne booking button par click 
            console.log("pickup time",pickuptime)
            console.log("driver email:",email)
           var pass_name= localStorage.getItem('username')
-          if(drivername!==pass_name){
+          var pass_email=localStorage.getItem("email")
+          if(drivername!==pass_name&&pass_email!==email){
             toast("Ride booked successfully",{
               style: {
                 background: "green",
@@ -141,7 +142,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     
     const url="https://travel-website-serving.onrender.com/bookings";
     var pass_name= localStorage.getItem('username')
-    if(pass_name!==drivername){
+    if(pass_name!==drivername&&useremail!==email){
     fetch(url,{
       method:'POST',
       headers:{
