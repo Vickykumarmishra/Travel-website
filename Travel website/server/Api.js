@@ -191,7 +191,7 @@ app.post('/mail',async (req,res)=>{
   const info={
 
     from:"golukumar9919mish@gmail.com",
-    to:email,pass_email,
+    to:[email,pass_email],
     subject:"Ride Booked successfully",
     text:"Congratulations your vehicle has been booked successfully.",
     html: `<h1>Congratulations Your Ride booked by ${pass_name}</h1>
