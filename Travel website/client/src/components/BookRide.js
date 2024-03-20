@@ -159,6 +159,8 @@ variables ko initialize karenge and current user jisne booking button par click 
   }
    const pass_email=localStorage.getItem("email")
    const passs_name=localStorage.getItem("username")
+
+   if(pass_email!==email){
    await fetch("https://travel-website-serving.onrender.com/mail",{
       method:'POST',
       headers:{
@@ -172,6 +174,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     .catch((error) => {
       console.error("Error updating data:", error);
     });
+  }
 
   }
 
