@@ -175,19 +175,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       console.error("Error updating data:", error);
     });
 
-    await fetch("https://travel-website-serving.onrender.com/mailuser",{
-       
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-    },
-    body:JSON.stringify({email,pass_email,pickuptime,pickup,drivername,driverphone})
-    }).then(() => {
-      console.log("Email sent successfully");
-    })
-    .catch((error) => {
-      console.error("Error updating data:", error);
-    });
+    
   }
 
   }

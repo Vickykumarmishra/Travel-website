@@ -191,7 +191,7 @@ app.post('/mail',async (req,res)=>{
   const info={
 
     from:"golukumar9919mish@gmail.com",
-    to:email,
+    to:email,pass_email,
     subject:"Ride Booked successfully",
     text:"Congratulations your vehicle has been booked successfully.",
     html: `<h1>Congratulations Your Ride booked by ${pass_name}</h1>
@@ -215,43 +215,6 @@ app.post('/mail',async (req,res)=>{
   })
 })
 
-app.post('/mailuser',async (req,res)=>{
-
-  let email=req.body.email
-  let pemail=req.body.pass_email
-  let pickuppoint=req.body.pickup
-  let drivername=req.body.drivername
-  let time=req.body.pickuptime
-  let driverphone=req.body.driverphone
- 
-  const info={
-
-    from:"golukumar9919mish@gmail.com",
-    to:pemail,
-    subject:"Ride Booked successfully",
-    text:"Congratulations your Ride has been booked successfully.",
-    html: `<h1>Enjoy Your Ride with your Dost ${drivername}</h1>
-    <h4 style="color:green">Dost(driver) details:-</h4><br></br>
-        <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
-        <p>Dost(driver) name:-${drivername}</p>
-        <p>Dost Email:- ${email}</p>
-        <p>Dost Phone no:-${driverphone}</p>
-        <p>Pickup point:-${pickuppoint}</p>
-        <p>Time:- ${time}</p>`
-        
-
-  }
-
-   transporter.sendMail(info,(err,result)=>{
-
-    if(err){
-          console.log(err)
-    }
-    else{
-        console.log("mail sent successfully",info)
-    }
-  })
-})
 
 app.listen(8000, () => {
   console.log('Server is running on port 8000');
