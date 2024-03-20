@@ -166,7 +166,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       headers:{
         'Content-Type':'application/json',
       },
-      body:JSON.stringify({email,pass_email,passs_name,pickuptime,pickup,drivername})
+      body:JSON.stringify({email,pass_email,passs_name,pickuptime,pickup,drivername,driverphone})
     })
     .then(() => {
       console.log("Email sent successfully");

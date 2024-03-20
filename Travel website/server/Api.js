@@ -187,20 +187,28 @@ app.post('/mail',async (req,res)=>{
   let pass_name=req.body.passs_name
   let pickuppoint=req.body.pickup
   let pickuptime=req.body.pickuptime
+  let drivername=req.body.drivername
+  let driverphone=req.body.driverphone
  console.log("pass email",pass_email)
   const info={
 
     from:"golukumar9919mish@gmail.com",
     to:[email,pass_email],
     subject:"Ride Booked successfully",
-    text:"Congratulations your vehicle has been booked successfully.",
-    html: `<h1>Congratulations Your Ride booked by ${pass_name}</h1>
+    text:"DriveDosti:-a ride sharing platform",
+    html: `<h1>DriveDosti booking details:-</h1>
     <h4 style="color:green">Passenger details:-</h4><br></br>
         <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
         <p>Passenger name:-${pass_name}</p>
         <p>Passenger Email:- ${pass_email}</p>
         <p>Pickup point:-${pickuppoint}</p>
-        <p>Time:-${pickuptime}<p>`
+        <p>Time:-${pickuptime}<p>
+        <h4 style="color:green">Dost(driver) details:-</h4><br></br>
+        
+        <p>Dost(driver)name:-${drivername}</p>
+        <p>Dost phone no:-${driverphone}</p>
+        <p>Dost email:-${email}</p>
+        <p></p>`
 
   }
 
