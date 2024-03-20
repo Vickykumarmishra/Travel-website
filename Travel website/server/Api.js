@@ -220,7 +220,7 @@ app.post('/mailuser',async (req,res)=>{
   let drivername=req.body.drivername
   let time=req.body.pickuptime
   let driverphone=req.body.driverphone
-  console.log(pemail)
+ 
   const info={
 
     from:"golukumar9919mish@gmail.com",
