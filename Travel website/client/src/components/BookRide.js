@@ -175,7 +175,7 @@ variables ko initialize karenge and current user jisne booking button par click 
       console.error("Error updating data:", error);
     });
 
-    await fetch("http://localhost:8000/mailuser",{
+    await fetch("https://travel-website-serving.onrender.com/mailuser",{
        
     method:'POST',
     headers:{
