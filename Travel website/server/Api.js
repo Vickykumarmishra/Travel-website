@@ -187,7 +187,7 @@ app.post('/mail',async (req,res)=>{
  console.log("pass email",pass_email)
   const info={
 
-    from:"golukumar9919mish@gmail.com",
+    from:"drivedosti@gmail.com",
     to:email,
     subject:"Ride Booked successfully",
     text:"Congratulations your vehicle has been booked successfully.",
@@ -212,7 +212,7 @@ app.post('/mail',async (req,res)=>{
   })
 })
 
-app.post('/mail2',async (req,res)=>{
+app.post('/mailuser',async (req,res)=>{
 
   let email=req.body.email
   let pass_email=req.body.pass_email
@@ -229,7 +229,7 @@ app.post('/mail2',async (req,res)=>{
     subject:"Ride Booked successfully",
     text:"Congratulations your Ride has been booked successfully.",
     html: `<h1>Enjoy Your Ride with your Dost ${drivername}</h1>
-    <h4 style="color:green">Passenger details:-</h4><br></br>
+    <h4 style="color:green">Dost(driver) details:-</h4><br></br>
         <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
         <p>Dost(driver) name:-${drivername}</p>
         <p>Dost Email:- ${email}</p>
