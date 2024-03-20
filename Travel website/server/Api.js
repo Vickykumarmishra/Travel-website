@@ -183,6 +183,7 @@ app.post('/mail',async (req,res)=>{
   let pass_email=req.body.pass_email
   let pass_name=req.body.passs_name
   let pickuppoint=req.body.pickup
+  let pickuptime=req.body.pickuptime
  console.log("pass email",pass_email)
   const info={
 
@@ -190,12 +191,52 @@ app.post('/mail',async (req,res)=>{
     to:email,
     subject:"Ride Booked successfully",
     text:"Congratulations your vehicle has been booked successfully.",
-    html: `<h1>Congratulations Your Ride booked by${pass_name}</h1>
+    html: `<h1>Congratulations Your Ride booked by ${pass_name}</h1>
     <h4 style="color:green">Passenger details:-</h4><br></br>
         <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
         <p>Passenger name:-${pass_name}</p>
         <p>Passenger Email:- ${pass_email}</p>
-        <p>Pickup point:-${pickuppoint}</p>`
+        <p>Pickup point:-${pickuppoint}</p>
+        <p>Time:-${pickuptime}<p>`
+
+  }
+
+   transporter.sendMail(info,(err,result)=>{
+
+    if(err){
+          console.log(err)
+    }
+    else{
+        console.log("mail sent successfully",info)
+    }
+  })
+})
+
+app.post('/mail2',async (req,res)=>{
+
+  let email=req.body.email
+  let pass_email=req.body.pass_email
+  let pass_name=req.body.passs_name
+  let pickuppoint=req.body.pickup
+  let drivername=req.body.drivername
+  let time=req.body.pickuptime
+  let driverphone=req.body.driverphone
+ console.log("pass email",pass_email)
+  const info={
+
+    from:"golukumar9919mish@gmail.com",
+    to:pass_email,
+    subject:"Ride Booked successfully",
+    text:"Congratulations your Ride has been booked successfully.",
+    html: `<h1>Enjoy Your Ride with your Dost ${drivername}</h1>
+    <h4 style="color:green">Passenger details:-</h4><br></br>
+        <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
+        <p>Dost(driver) name:-${drivername}</p>
+        <p>Dost Email:- ${email}</p>
+        <p>Dost Phone no:-${driverphone}</p>
+        <p>Pickup point:-${pickuppoint}</p>
+        <p>Time:- ${time}</p>`
+        
 
   }
 

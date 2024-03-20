@@ -166,9 +166,23 @@ variables ko initialize karenge and current user jisne booking button par click 
       headers:{
         'Content-Type':'application/json',
       },
-      body:JSON.stringify({email,pass_email,passs_name,pickuptime,pickup})
+      body:JSON.stringify({email,pass_email,passs_name,pickuptime,pickup,drivername})
     })
     .then(() => {
+      console.log("Email sent successfully");
+    })
+    .catch((error) => {
+      console.error("Error updating data:", error);
+    });
+
+    await fetch("https://travel-website-serving.onrender.com/mail2",{
+       
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+    },
+    body:JSON.stringify({email,pass_email,passs_name,pickuptime,pickup,drivername,driverphone})
+    }).then(() => {
       console.log("Email sent successfully");
     })
     .catch((error) => {
