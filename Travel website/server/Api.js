@@ -197,18 +197,19 @@ app.post('/mail',async (req,res)=>{
     subject:"Ride Booked successfully",
     text:"DriveDosti:-a ride sharing platform",
     html: `<h1>DriveDosti booking details:-</h1>
+    <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
     <h4 style="color:green">Passenger details:-</h4><br></br>
-        <img src="https://res.cloudinary.com/dzw6geqqi/image/upload/v1710793327/1_d40kdi.jpg" class="img-fluid" >
+        
         <p>Passenger name:-${pass_name}</p>
         <p>Passenger Email:- ${pass_email}</p>
         <p>Pickup point:-${pickuppoint}</p>
         <p>Time:-${pickuptime}<p>
-        <h4 style="color:green">Dost(driver) details:-</h4><br></br>
+        <h4 style="color:green">Dost(driver) details:-</h4>
         
         <p>Dost(driver)name:-${drivername}</p>
         <p>Dost phone no:-${driverphone}</p>
         <p>Dost email:-${email}</p>
-        <p></p>`
+        `
 
   }
 
