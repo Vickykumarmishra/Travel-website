@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 export default function Protected(props) {
     
-    const {Component}=props
+    const {Component}=props//destructring the component passed as a prop in this component
     const navigate=useNavigate()
 
  
@@ -11,26 +11,17 @@ export default function Protected(props) {
     useEffect(()=>{
 
       if(localStorage.getItem('login')){
-        console.log('abra')
-     
+        //after successful login i am setting login key inside localstorage as true
+        //so if user has logged in then only he can access the protected routes
         let login=localStorage.getItem('login');
+        navigate('/About')
        
       }
       else{
-        console.log('dabra')
-       
-       
-
+        
         navigate('/Login')
 
-        
-       
-
       }
-
-      
-
-    
     },[])
   return (
     <div>

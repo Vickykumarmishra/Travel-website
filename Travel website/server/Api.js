@@ -52,11 +52,7 @@ app.get('/', (req, res) => {
   res.send('server working');
 });
 
-// app.post('/post', async (req, res) => {
-//   let data = new Product(req.body);
-//   let result = await data.save();
-//   res.send(result);
-// });
+
 
 const multer = require("multer");
 
@@ -207,7 +203,7 @@ app.post('/mail',async (req,res)=>{
         <h4 style="color:green">Dost(driver) details:-</h4>
         
         <p>Dost(driver)name:-${drivername}</p>
-        <p>Dost phone no:-${driverphone}</p>
+        <p>Dost phone no:- ${driverphone}</p>
         <p>Dost email:-${email}</p>
         `
 

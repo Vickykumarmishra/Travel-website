@@ -123,7 +123,7 @@ variables ko initialize karenge and current user jisne booking button par click 
        
       }
       
-     // console.log("data is:",data)
+    
     })
     .catch(error => {
       console.error("Error fetching data:", error);
@@ -218,7 +218,7 @@ variables ko initialize karenge and current user jisne booking button par click 
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
             const { _id, name, phone, pickup, charge, time,mode,imageUrl,date } = soln;
-            //mode==car?console.log('car'):console.log('bike')
+            
             return (
               <div key={_id} className="col-md-6 col-lg-4">
                 
