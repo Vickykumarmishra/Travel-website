@@ -14,7 +14,7 @@ export default function Protected(props) {
         //after successful login i am setting login key inside localstorage as true
         //so if user has logged in then only he can access the protected routes
         let login=localStorage.getItem('login');
-        navigate('/About')
+       
        
       }
       else{
