@@ -96,11 +96,7 @@ variables ko initialize karenge and current user jisne booking button par click 
            pickup=response.data.pickup;
            pickuptime=response.data.time;
            email=response.data.email;
-           console.log("booked driver name:",drivername)
-           console.log("booked driver phone no:", driverphone)
-           console.log("pickup point:", pickup)
-           console.log("pickup time",pickuptime)
-           console.log("driver email:",email)
+           
           var pass_name= localStorage.getItem('username')
           var pass_email=localStorage.getItem("email")
           if(drivername!==pass_name&&pass_email!==email){
@@ -130,8 +126,6 @@ variables ko initialize karenge and current user jisne booking button par click 
 
     });
     
-
-    
     var username=localStorage.getItem('username');
     var useremail=localStorage.getItem('email');
     var driverid=_id.slice(0, 8)//first 8 letter only stored
@@ -143,7 +137,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     const url="https://travel-website-serving.onrender.com/bookings";
     var pass_name= localStorage.getItem('username')
     if(pass_name!==drivername&&useremail!==email){
-    fetch(url,{
+   await fetch(url,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
