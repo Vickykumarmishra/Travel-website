@@ -27,7 +27,7 @@ function handlemode(m){
 }
 
 
-  function handleClick(e){
+ async function handleClick(e){
 
     e.preventDefault();
 
@@ -71,7 +71,7 @@ function handlemode(m){
         })
       }
       else{
-      fetch(url,{
+     await fetch(url,{
         method:'POST',
        
         body:formData,
