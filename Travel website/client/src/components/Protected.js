@@ -11,7 +11,7 @@ export default function Protected(props) {
     useEffect(()=>{
 
       if(localStorage.getItem('login')){
-        //after successful login i am setting login key inside localstorage as true
+        //after successful login i am setted login key inside localstorage as true
         //so if user has logged in then only he can access the protected routes
         let login=localStorage.getItem('login');
        

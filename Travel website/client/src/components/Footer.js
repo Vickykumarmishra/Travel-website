@@ -68,7 +68,7 @@ export default function Footer() {
 
          
             <a
-               class="btn btn-primary btn-floating m-1"
+               className="btn btn-primary btn-floating m-1"
                style={{backgroundColor: '#3b5998'}}
                href="#!"
                role="button"
