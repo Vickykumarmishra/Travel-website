@@ -81,7 +81,7 @@ export default function Signup() {
             console.log("I was closed by the timer");
           }
         });
-        const response = await fetch('https://drivedosti-server.onrender.com/signup', { // Assuming i have a signup endpoint
+        const response = await fetch('https://drivedosti.onrender.com/signup', { // Assuming i have a signup endpoint
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
