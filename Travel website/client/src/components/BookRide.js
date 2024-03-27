@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function BookRide() {
   
   const [allImage, setAllImage] = useState(null);
+  const [reset,setReset]=useState(false)
   const [role, setRole] = useState('');
   const [info, setInfo] = useState([]);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
@@ -17,7 +18,41 @@ export default function BookRide() {
   var driverphone;
   var pickup;
   var pickuptime;
-  var email
+  var email;
+  var searchitem;
+  function handledate(e){
+      e.preventDefault()
+      searchitem=document.getElementById("date").value;
+
+      if (searchitem === '') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Write something before searching',
+          iconColor: '#ED7D31',
+          customClass: {
+            popup: 'error-modal', // Add a class for custom styling
+            title: 'tit',
+            icon: 'iconic',
+            footer: 'foot',
+            confirmButton: 'confirm',
+          },
+        });
+      }
+      else{
+        const filteredData=info.filter((current)=>{
+          if(current.date===searchitem){
+            return current;
+          }
+        })
+        setInfo(filteredData)
+        setReset(true)
+      }
+  }
+
+  function handlereset(){
+    window.location.reload();
+  }
   const buttonhide = () => {
  
     if(role==='user'){
@@ -203,11 +238,16 @@ variables ko initialize karenge and current user jisne booking button par click 
     <div className='container' onLoad={ buttonhide} >
 
     <h1 style={{ marginBottom:"1rem",marginTop:'3rem'}}>Book Your Ride</h1>
-      <div class="main-top">
-        
-      </div>
       
      <b> <h6 style={{color:"red",margin:'1rem',backgroundColor:'#05b993'}}> {role} mode</h6></b>
+
+     <div className='row'>
+      <div className='col-sm-12 col-lg-12 col-md-12'>
+        {/* <label>search by date</label> */}
+        <p><input type="date" id="date" style={{borderRadius:'0.5rem',margin:'0.5rem'}} ></input> {reset?<button type="submit" onClick={handlereset} style={{backgroundColor:'red',color:'white',borderRadius:'0.5rem'}}>Reset</button>:<button type="submit" onClick={handledate} style={{backgroundColor:'#05b993',color:'white',borderRadius:'0.5rem'}}>Search</button>}</p>
+      </div>
+     </div>
+
       <div className="overflow-auto">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {info.map((soln, index) => {
