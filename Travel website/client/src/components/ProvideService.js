@@ -58,7 +58,7 @@ function handlemode(m){
  
   var currentUser=localStorage.getItem("username")
   var currentUserEmail=localStorage.getItem("email")
-    const url="https://drivedosti.onrender.com/post"
+    const url="https://travel-website-powx.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''&&image!==undefined&&vehicle!==''&&date!==''&&email!==''){
 
