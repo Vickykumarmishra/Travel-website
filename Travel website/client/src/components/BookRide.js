@@ -190,7 +190,7 @@ variables ko initialize karenge and current user jisne booking button par click 
    const passs_name=localStorage.getItem("username")
 
    if(pass_email!==email){
-   await fetch("https://drivedosti-1.onrender.com/mail",{
+   await fetch("https://drivedosti.onrender.com/mail",{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
