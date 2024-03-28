@@ -172,7 +172,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     const url="https://travel-website-powx.onrender.com/bookings";
     var pass_name= localStorage.getItem('username')
     if(pass_name!==drivername&&useremail!==email){
-   await fetch(url,{
+    fetch(url,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -190,6 +190,7 @@ variables ko initialize karenge and current user jisne booking button par click 
    const passs_name=localStorage.getItem("username")
 
    if(pass_email!==email){
+    console.log("jai ho")
    await fetch("https://travel-website-powx.onrender.com/mail",{
       method:'POST',
       headers:{
