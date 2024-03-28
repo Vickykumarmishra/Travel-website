@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 var nodemailer=require('nodemailer');
 require('dotenv').config();
 require("./Connection");
-require('dotenv').config();
+
 
 const transporter = nodemailer.createTransport({
   //service:"gmail",
