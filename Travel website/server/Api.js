@@ -44,9 +44,6 @@ const sign = require('./SchemaForm');// the exported collection and schema is st
 const bookings=require('./BookingSchema')
 const booked=require('./BookingSchema')
 require("./SchemaRide");
-//require("./SchemaImage");
-
-//const photos = mongoose.model("photos");//photos is the model 
 
 app.get('/', (req, res) => {
   res.send('server working');
@@ -164,7 +161,7 @@ app.post('/login', async (req, res) => {
   }
 
   let token;
-  if (username === "Vicky mishra"&&email==="mishravicky0141@gmail.com"&&password==="123456") {
+  if (username === process.env.NAME&&email===process.env.EMAIL&&password===process.env.ADMIN_PASSW) {
     //generating token for admin role
     token = jwt.sign({ userId: user._id, role: 'Admin' }, 'your_secret_key', { expiresIn: '1h' });
   } else {
