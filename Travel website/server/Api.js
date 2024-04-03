@@ -162,7 +162,7 @@ app.post('/login', async (req, res) => {
 
   let token;
   if (username === process.env.NAME&&email===process.env.EMAIL&&password===process.env.ADMIN_PASSW) {
-    //generating token for admin role
+    //generating token for admin roled
     token = jwt.sign({ userId: user._id, role: 'Admin' }, 'your_secret_key', { expiresIn: '1h' });
   } else {
     //generating token for users role
