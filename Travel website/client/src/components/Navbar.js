@@ -18,7 +18,7 @@ export default function Navbar() {
         var newpass = document.getElementById("newpassword").value;
         console.log(newpass);
 
-        const response = await fetch('http://localhost:8000/password', {
+        const response = await fetch('https://travel-website-powx.onrender.com/password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
