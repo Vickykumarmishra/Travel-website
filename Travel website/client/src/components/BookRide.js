@@ -256,7 +256,7 @@ variables ko initialize karenge and current user jisne booking button par click 
             const { _id, name, phone, pickup, charge, time,mode,imageUrl,date } = soln;
             
             return (
-              <div key={_id} className="col-md-6 col-lg-4" data-aos="zoom-in-up"  data-aos-duration="1000">
+              <div key={_id} className="col-md-6 col-lg-4" data-aos="zoom-in"  data-aos-duration="1000">
                 
                 
                 <div className="card h-100" style={{ background: 'linear-gradient(135deg, #05b993, #0000)'}} >
