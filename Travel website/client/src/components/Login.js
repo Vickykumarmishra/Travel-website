@@ -77,6 +77,7 @@ export default function Login() {
       localStorage.setItem('username',username)
       localStorage.setItem('email',email)
       localStorage.setItem('login',true)
+      localStorage.setItem('passw',password)
       const token = data.token;
       const tokenParts = token.split('.');
       /*token.split('.') splits the JWT string into an array of substrings using a dot (.) as the delimiter.
