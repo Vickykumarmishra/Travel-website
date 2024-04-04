@@ -30,7 +30,9 @@ export default function Navbar() {
             Swal.fire(
                 'Saved',
                 'Password updated successfully',
-                'success'
+                'Login with new password',
+                'success',
+                
             );
             navigate('/Login')
         } else {
