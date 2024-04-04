@@ -61,7 +61,7 @@ export default function Login() {
       }
     });
     
-    const response = await fetch('https://travel-website-powx.onrender.com/login', {
+    const response = await fetch('http://localhost:8000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +85,9 @@ export default function Login() {
       /*tokenParts[1] represents the second part of the JWT, which is the payload encoded in base64. */
 /*The parse method in JavaScript is often used with JSON data. It parses a JSON string and converts it into a JavaScript object. */
       const role = payload.role;
+      const userId=payload.userId;
       localStorage.setItem('role', role);
+      localStorage.setItem('currId',userId)
 
       navigate('/About');
       Swal.fire('Logged In', 'Welcome to DriveDosti', 'success');

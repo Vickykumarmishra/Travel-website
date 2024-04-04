@@ -86,7 +86,7 @@ const Bookings = () => {
   return (
     <>
       <Navbar />
-      <div className='container' style={{ marginTop: '2rem', marginBottom: '1rem' }}>
+      <div className='container' style={{ marginTop: '2rem', marginBottom: '1rem' }} >
         <h1 style={{ marginBottom: '1rem', marginTop: '3rem' }}>Booking Details</h1>
         <form class='d-flex' role='search' onSubmit={handlesearch}>
           <input class='form-control me-2' type='search' id='searchbar' placeholder='Search By:-Names/pickup point only' aria-label='Search' />
@@ -96,10 +96,10 @@ const Bookings = () => {
         </form>
       </div>
 
-      <div className='container table-container'>
-        <table>
+      <div className='container table-container'  >
+        <table >
           <thead>
-            <tr>
+            <tr >
               <th>Driver id</th>
               <th>Driver Name</th>
               <th>Driver phone no</th>
@@ -109,11 +109,11 @@ const Bookings = () => {
               <th>Pickup Time</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody  >
             {filteredBooking.map((soln, index) => {
               const { username, drivername, driverphone, driverid, useremail, pickup, pickuptime } = soln;
               return (
-                <tr key={index} style={{ color: 'green' }}>
+                <tr key={index} style={{ color: 'green' }} >
                   <td>{driverid}</td>
                   <td>{drivername}</td>
                   <td>{driverphone}</td>

@@ -173,6 +173,27 @@ app.post('/login', async (req, res) => {
 //Sends a JSON response containing the generated token. This response can be consumed by the client, typically for authentication purposes
 });
 
+app.post('/password',async(req,res)=>{
+  
+  const passw=req.body.newpass;
+  const currentid=req.body.userid;
+  console.log("current id:",currentid)
+  console.log("password",passw)
+  const user = await sign.findOne({_id:currentid});
+  console.log(user)
+  if(user){
+    const hashedPassword= await bcryptjs.hash(passw, 10);
+    console.log("password")
+     // Update the user's password
+    //  user.password = hashedPassword;
+    //  // Save the updated user data
+    await sign.updateOne({_id:currentid},{$set:{password:hashedPassword}})
+    await user.save();
+    res.status(200).json({ message: 'Password updated successfully' });
+
+  }
+})
+
 app.post('/mail',async (req,res)=>{
 
   let email=req.body.email

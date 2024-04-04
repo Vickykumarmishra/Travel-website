@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 export default function BookRide() {
   
   const [allImage, setAllImage] = useState(null);
@@ -255,11 +256,11 @@ variables ko initialize karenge and current user jisne booking button par click 
             const { _id, name, phone, pickup, charge, time,mode,imageUrl,date } = soln;
             
             return (
-              <div key={_id} className="col-md-6 col-lg-4">
+              <div key={_id} className="col-md-6 col-lg-4" data-aos="zoom-in-up"  data-aos-duration="1000">
                 
                 
-                <div className="card h-100" style={{ background: 'linear-gradient(135deg, #05b993, #0000)'}}>
-    <div className="card-body" style={{border:'0.05rem solid green',borderRadius:'0.3rem'}}>
+                <div className="card h-100" style={{ background: 'linear-gradient(135deg, #05b993, #0000)'}} >
+    <div className="card-body" style={{border:'0.05rem solid green',borderRadius:'0.3rem'}} >
         <img src={imageUrl} style={{ height: "10rem", width: '10rem', borderRadius: '100%', border: '0.1rem solid grey' }} className='img-fluid'></img>
         <h5 className="card-title" styel={{color:'green'}}>Dost: {name}</h5>
         <p className="card-text" style={{color:'green'}}><b>Id: {_id.slice(0,8)}</b></p>

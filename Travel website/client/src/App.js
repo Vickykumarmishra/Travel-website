@@ -17,7 +17,7 @@ function App() {
 <BrowserRouter>
 
 <Routes>
-  <Route path='/About' element={<About/>}></Route>
+  <Route path='/About' element={<About/>} ></Route>
   <Route path='/Bookings' element={<Protected Component={Bookings}/>}> </Route>
   <Route path='/Contact' element={<Contact/>}></Route>
   <Route path='/ProvideService' element={<Protected  Component={ProvideService}/>}></Route>

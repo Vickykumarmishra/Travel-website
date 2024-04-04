@@ -1,10 +1,58 @@
 import React, { useEffect } from 'react'
 import {motion} from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Login from './Login'
 export default function Navbar() {
   const navigate=useNavigate()
+  function handlePassword(){
+   document.getElementById("newpassword").style.display="block"
+   document.getElementById("passwordchange").style.display="block"
+  }
+
+  
+  async function newpassword() {
+    try {
+        var userid = localStorage.getItem('currId');
+        console.log("current id", userid);
+        var newpass = document.getElementById("newpassword").value;
+        console.log(newpass);
+
+        const response = await fetch('http://localhost:8000/password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ newpass, userid }),
+        });
+
+        if (response.ok) {
+            Swal.fire(
+                'Saved',
+                'Password updated successfully',
+                'success'
+            );
+            navigate('/Login')
+        } else {
+            // Handle non-OK response (e.g., server error, bad request, etc.)
+            console.error('Error:', response.status, response.statusText);
+            Swal.fire(
+                'Error',
+                'Failed to update password. Please try again later.',
+                'error'
+            );
+        }
+    } catch (error) {
+        // Handle any exceptions (e.g., network error, invalid URL, etc.)
+        console.error('Error:', error.message);
+        Swal.fire(
+            'Error',
+            'An unexpected error occurred. Please try again later.',
+            'error'
+        );
+    }
+}
+
 
   function handlelprotection(e){
 
@@ -36,6 +84,7 @@ export default function Navbar() {
     localStorage.removeItem("username");
     localStorage.removeItem("email")
     localStorage.removeItem("token")
+    localStorage.removeItem('currId')
     }
     navigate('/Login')
   }
@@ -89,7 +138,11 @@ export default function Navbar() {
     <img src="drivedosti profile.png" className='img-fluid' style={{height:'5rem'}}></img><br></br><br></br>
   <b> Username:-{localStorage.getItem("username")} </b>  <br></br>
       <p><b>Email Id:- {localStorage.getItem("email")}</b></p>
-    <motion.button whileHover={{textDecoration:'underline'}} id='logout' className="btn btn-success" aria-current="page" href="#" onClick={handlelogout}>LogOut</motion.button>
+
+      <Link onClick={handlePassword}>Click to change password</Link><br></br><br></br>
+      <center><input type="text" id="newpassword" placeholder='Enter new password' style={{display:"none",marginBottom:"1rem"}}></input></center>
+      <center><motion.button  id='passwordchange'  aria-current="page" href="#" onClick={newpassword} style={{display:"none",marginBottom:"1rem"}}>Click to update</motion.button></center>
+    <motion.button  id='logout' className="btn btn-success" aria-current="page" href="#" onClick={handlelogout}>LogOut</motion.button>
   </div>
 </div>
     </div>
