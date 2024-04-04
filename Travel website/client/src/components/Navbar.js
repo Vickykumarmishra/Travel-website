@@ -8,10 +8,18 @@ export default function Navbar() {
   function handlePassword(){
    document.getElementById("newpassword").style.display="block"
    document.getElementById("passwordchange").style.display="block"
+   document.getElementById("oldpassword").style.display="block"
   }
 
   
   async function newpassword() {
+
+    var oldpass=document.getElementById("oldpassword").value;
+    var nayapasword=document.getElementById("newpassword").value
+
+    if(oldpass!==nayapasword){
+
+    
     try {
         var userid = localStorage.getItem('currId');
         console.log("current id", userid);
@@ -53,6 +61,15 @@ export default function Navbar() {
             'error'
         );
     }
+  }
+  else{
+    
+    Swal.fire(
+      'Error',
+      'old and new password cannot be same',
+      'error'
+  );
+  }
 }
 
 
@@ -141,10 +158,11 @@ export default function Navbar() {
   <b> Username:-{localStorage.getItem("username")} </b>  <br></br>
       <p><b>Email Id:- {localStorage.getItem("email")}</b></p>
 
-      <Link onClick={handlePassword}>Click to change password</Link><br></br><br></br>
+      <Link onClick={handlePassword} style={{color:"#05b993"}}>Click to change password</Link><br></br><br></br>
+      <center><input type="text" id="oldpassword" placeholder='Enter current password' style={{display:"none",marginBottom:"1rem"}}></input></center>
       <center><input type="text" id="newpassword" placeholder='Enter new password' style={{display:"none",marginBottom:"1rem"}}></input></center>
-      <center><motion.button  id='passwordchange'  aria-current="page" href="#" onClick={newpassword} style={{display:"none",marginBottom:"1rem"}}>Click to update</motion.button></center>
-    <motion.button  id='logout' className="btn btn-success" aria-current="page" href="#" onClick={handlelogout}>LogOut</motion.button>
+      <center><motion.button  id='passwordchange'  aria-current="page" href="#" onClick={newpassword} style={{display:"none",marginBottom:"1rem",backgroundColor:"#05b993",color:"white",borderColor:'transparent'}}>Click to update</motion.button></center>
+    <motion.button  id='logout' className="btn btn-success" aria-current="page" style={{width:"100%"}} href="#" onClick={handlelogout}>LogOut</motion.button>
   </div>
 </div>
     </div>
