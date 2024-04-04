@@ -193,7 +193,7 @@ export default function Navbar() {
       <p><b>Email Id:- {localStorage.getItem("email")}</b></p>
 
       <Link onClick={handlePassword} style={{color:"#05b993"}}>Click to change password</Link><br></br><br></br>
-      <center><input type="text" id="oldpassword" placeholder='Enter current password'    style={{display:"none",marginBottom:"1rem"}} ></input></center>
+      <center><input type="text" id="oldpassword" placeholder='Enter Old password'    style={{display:"none",marginBottom:"1rem"}} ></input></center>
       
       <center><input type="text" id="newpassword" placeholder='Enter new password'  onChange={(e) => {handleChange(e);}} name="password"  value={values.password}  onBlur={handleBlur} style={{display:"none",marginBottom:"1rem"}}></input></center>
       {/* {errors.password && touched.password?(<p  style={{color:'red'}}className='form-error'>{errors.password}</p>):null} */}
