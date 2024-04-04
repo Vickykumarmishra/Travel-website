@@ -143,6 +143,13 @@ variables ko initialize karenge and current user jisne booking button par click 
               },
             })
 
+            toast("Details sent to your Email",{
+              style: {
+                background: "#FF8F8F",
+                color: "white",
+              },
+            })
+
           }
           else{
             toast("canot be booked",{
@@ -201,6 +208,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     })
     .then(() => {
       console.log("Email sent successfully");
+       
     })
     .catch((error) => {
       console.error("Error updating data:", error);
