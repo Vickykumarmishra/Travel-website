@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { SchemaProvide } from '../schema/Index';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const initialValues={
@@ -21,7 +22,7 @@ const initialValues={
 export default function ProvideService() {
 var m;
 const [mode,setMode]=useState('');
-
+const navigate=useNavigate()
 function handlemode(m){
   setMode(m)
 }
@@ -97,7 +98,7 @@ function handlemode(m){
         'Your information saved to database!',
         'success'
       )
-
+    window.open('https://buy.stripe.com/test_5kAdSbgBb4NjdwcdQQ')
         
       }
        
@@ -235,6 +236,7 @@ function handlemode(m){
         {/* {errors.image && touched.image?(<p  style={{color:'red'}}className='form-error'>{errors.image}</p>):null} */}
 
       <div className='container' type='submit' style={{backgroundColor:"#33cc99",color:'white',marginTop:'1rem',marginBottom:"1rem",padding:"0.5rem"}} onClick={handleClick} ><b>Submit</b></div>
+
       </form>
       
     <center>
