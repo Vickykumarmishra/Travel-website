@@ -103,7 +103,7 @@ Swal.fire({
   }
 });
 
-    axios.get("https://travel-website-powx.onrender.com/getter")
+    axios.get("https://travel-website-serving.onrender.com/getter")
       .then(response => {
         if(response.ok=true){
           Swal.close()
@@ -120,7 +120,7 @@ Swal.fire({
 
   async function handlebooking(_id){
 //bookRide button par click karke current driver ka id bheje hai is function me.
-    await axios.get(`https://travel-website-powx.onrender.com/getbooking/${_id}`)
+    await axios.get(`https://travel-website-serving.onrender.com/getbooking/${_id}`)
 /*current driver ka id fetch karke usko 'getbooking api me bhej denge and then is id k corresponding data fetch karenge then niche 
 variables ko initialize karenge and current user jisne booking button par click kiya hai uska details localstorage se lenge
  then dono ka data ek separate collection me bhej denge*/
@@ -177,7 +177,7 @@ variables ko initialize karenge and current user jisne booking button par click 
     console.log('username:',username)
     console.log("driver id:",driverid)
     
-    const url="https://travel-website-powx.onrender.com/bookings";
+    const url="https://travel-website-serving.onrender.com/bookings";
     var pass_name= localStorage.getItem('username')
     if(pass_name!==drivername&&useremail!==email){
     fetch(url,{
@@ -199,7 +199,7 @@ variables ko initialize karenge and current user jisne booking button par click 
 
    if(pass_email!==email){
     console.log("jai ho")
-   await fetch("https://travel-website-powx.onrender.com/mail",{
+   await fetch("https://travel-website-serving.onrender.com/mail",{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -221,7 +221,7 @@ variables ko initialize karenge and current user jisne booking button par click 
 
   const handleDelete = async (_id) => {
     if (role === 'Admin') {
-      const response = await fetch(`https://travel-website-powx.onrender.com/delete/${_id}`, {
+      const response = await fetch(`https://travel-website-serving.onrender.com/delete/${_id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
