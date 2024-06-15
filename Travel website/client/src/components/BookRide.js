@@ -136,6 +136,8 @@ variables ko initialize karenge and current user jisne booking button par click 
           var pass_name= localStorage.getItem('username')
           var pass_email=localStorage.getItem("email")
           if(drivername!==pass_name&&pass_email!==email){
+
+            window.open('https://buy.stripe.com/test_7sI6pJ2Klgw19fW9AC')
             toast("Ride booked successfully",{
               style: {
                 background: "green",
@@ -150,7 +152,7 @@ variables ko initialize karenge and current user jisne booking button par click 
               },
             })
 
-            window.open('https://buy.stripe.com/test_7sI6pJ2Klgw19fW9AC')
+           
 
           }
           else{
