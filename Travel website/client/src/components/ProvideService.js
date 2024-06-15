@@ -98,7 +98,7 @@ function handlemode(m){
         'Your information saved to database!',
         'success'
       )
-    window.open('https://buy.stripe.com/test_5kAdSbgBb4NjdwcdQQ')
+    // window.open('https://buy.stripe.com/test_5kAdSbgBb4NjdwcdQQ')
         
       }
        

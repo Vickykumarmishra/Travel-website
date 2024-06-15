@@ -150,6 +150,8 @@ variables ko initialize karenge and current user jisne booking button par click 
               },
             })
 
+            window.open('https://buy.stripe.com/test_7sI6pJ2Klgw19fW9AC')
+
           }
           else{
             toast("canot be booked",{
