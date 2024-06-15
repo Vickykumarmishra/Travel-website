@@ -10,6 +10,7 @@ import ProvideService from './components/ProvideService';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Bookings from './components/Bookings';
+import Redirect from './components/Redirect';
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
   <Route path="/" element={<Home/>}></Route>
   <Route path="/Signup" element={<Signup/>}></Route>
   <Route path='/Login' element={<Login/>}></Route>
+  <Route path='/Redirect' element={<Redirect/>}></Route>
 </Routes>
 </BrowserRouter>
     </div>
