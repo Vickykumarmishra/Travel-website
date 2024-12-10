@@ -70,7 +70,7 @@ const storage = multer.diskStorage({
       
        let data = new Product(req.body);
        
-      console.log("data" + data)//yaha image url khali hoga
+      
       data.imageUrl = result.secure_url; 
       console.log("data" + data)//yaha ham imageurl add kar diye
       let savedData = await data.save();
@@ -99,7 +99,8 @@ app.get("/getter", async (req, res) => {
 });
 
 app.get("/getbooking/:_id", async (req, res) => {
-  Product.findById(req.params).then((data) => {
+  // here _id is the route parameter. and we access it using req.params.parameter_name.
+  Product.findById(req.params._id).then((data) => {
     res.send(data);
   });
 });
@@ -117,10 +118,10 @@ app.post('/signup', async (req, res) => {
   //const { username, email, password } = req.body;: This line of code is using destructuring assignment in JavaScript. 
   //It's extracting specific properties (username, email, and password) from the req.body object and assigning their values to individual variables.
   //username, email, and password are variable names that will be created based on the properties found in req.body.
-  const existingUser = await sign.findOne({ email:email });//first username is the field name inside schema and secondone is the data recieved from frontend side.
-  //If a document with the username specified in the query criteria is found in the "sign" collection, the existingUser variable will be assigned an object representing that document.
+  const existingUser = await sign.findOne({ email:email });//first ramil is the field name inside schema and secondone is the data recieved from frontend side.
+  //If a document with the email specified in the query criteria is found in the "sign" collection, the existingUser variable will be assigned an object representing that document.
   //sign is the name of model. using model we perform crud operations
-  if (existingUser) {//objects are considerd as trruthy value
+  if (existingUser) {//objects are considerd as truthy value
     return res.status(400).json({ message: 'Username already taken' });
   }
 
